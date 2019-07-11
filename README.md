@@ -1,4 +1,4 @@
-# Notas de Aula da disciplina Matemática Elementar
+# Notas de Aula
 Este repositório mantém as notas de aula das disciplinas ministradas pelo Professor Luiz Picolo no Instituto Federal de Mato Grosso do Sul. Todas as notas de aulas são referentes tanto ao Ensino Médio, quanto ao Ensino Superior. Para que seja feita a distinçào, você deve acessar as notas e verificar e ementa disponível no readme.md
 
 ## Compilação
