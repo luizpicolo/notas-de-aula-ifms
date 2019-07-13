@@ -61,6 +61,29 @@
 \usepackage{amssymb,amsfonts,amsthm}
 \usepackage{setspace}
 % ---
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{inconsolata}
+\lstset{
+    language=bash, %% Troque para PHP, C, Java, etc... bash é o padrão
+    basicstyle=\ttfamily\small,
+    numberstyle=\footnotesize,
+    numbers=left,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    tabsize=2,
+    rulecolor=\color{black!30},
+    title=\lstname,
+    escapeinside={\%*}{*)},
+    breaklines=true,
+    breakatwhitespace=true,
+    framextopmargin=2pt,
+    framexbottommargin=2pt,
+    inputencoding=utf8,
+    extendedchars=true,
+    literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1,
+}
 		
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
