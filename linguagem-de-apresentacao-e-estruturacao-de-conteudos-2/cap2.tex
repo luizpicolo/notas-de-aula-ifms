@@ -1,0 +1,72 @@
+\chapter{Variáveis e Constantes}
+
+Definir o que são variáveis ou constantes de forma geral é extremamente simples. Uma variável nada mais é do que um espaço que o sistemas operacional (SO) aloca na memória de seu computador para que seja armazenado algo. Ou seja, quando precisamos armazenar um determinado valor nosso SO cria um espaço e permite ao usuário determinar o que será adicionado. A medida que não será utilizado este espaço com um valor, ele será dissipado, fazendo com que seus disponibilizando-os para serem usados na construção de outros novos valores \cite{haverbeke2014eloquent}.
+
+Mas como é criado este valores? Eu preciso entender de memoria, sistemas operacionais, entre outros para poder alocar este valores? A resposta é não, não é necessário a compreenção de tão baixo nível, basta que se compreenda como é criar variáveis ou constantes em um determinada linguagem, que, neste caso, é JavaScript.
+
+\section{Tipos de dados}
+
+Diferente das linguagens com tipagem forte, ou seja, que levam em consideração o tipo para executar suas operações, o JavaScript possui tipagem fraca, a qual é dado o tipo dos dados que serão alocados quando o código é executado. Outro ponto é a tipagem dinâmica. Logo, não é necessário tipar uma variável quando inicia-se o programa como é feito em Java, C, C++, entre outras linguagens, mas esta responsabilidade é repassada ao compilador, que, caso do JavaScript em questão, esse processo é dado o nome Inferência de Tipo.
+
+A inferência de tipos é a capacidade do compilador entender/’adivinhar’ qual é o tipo de dados de determinada variável sem ela ter sido declarada no código escrito. 
+
+Segundo a \citeonline{mdnmozilla2019}, JavaScript reconhece os seguintes tipos de valores:
+
+\begin{itemize}
+  \item Números (en), como 42 ou 3,14159
+  \item Valores lógicos (Booleanos) (en), true ou false
+  \item Strings (en), tais como "Howdy!"
+  \item null, um palavra chave especial denotando um valor nulo; null também é um valor primitivo. Como JavaScript é sensível a maiúsculas, null não é a mesma coisa que Null, NULL, ou qualquer outra variante
+  \item undefined (en), uma propriedade de alto nível a qual possui o valor indefinido; undefined também é um valor primitivo.  
+\end{itemize}
+
+Este conjunto de tipos de valores, relativamente pequeno, permite realizar funções úteis nas aplicações. Não há distinção explícita entre números inteiros e reais, para JavaScript, todos os números são tratados como \textit{Number}. 
+
+\section{Variáveis}
+
+O JavaScript é uma linguagem de tipagem dinâmica. Isto significa que não é necessário especificar o tipo de dado de uma variável quando ela for declarada, e tipos de dados são automaticamento convertidos conforme necessário durante a execução do script. Então, por exemplo, pode-se definir uma variável como:
+
+\begin{lstlisting}
+  var idade = 30
+  var instituicao = "IFMS" 
+\end{lstlisting}
+
+Para que possamos saber o tipo que foi atribuido para cada variável, podemos utilizar a função \textbf{typeof} da seguinte forma: 
+
+\begin{lstlisting}
+  var idade = 30
+  console.log(typeof idade) // Retornará number
+\end{lstlisting}
+
+Outra forma de declarar variáveis é utilizando a palavra reservada \textbf{let}.
+
+\begin{lstlisting}
+  let idade = 30
+  let instituicao = "IFMS" 
+\end{lstlisting} 
+
+Mas qual a diferença entre \textbf{var} e \textbf{let}? Neste momento não possuimos o conhecimento necessário para diferenciar as duas palavras reservadas. Contudo, veremos nos próximos capítulos como as duas se diferenciam e quando utilizar uma ou outra.
+
+\subsection{Hoinsting}
+
+Segundo a \citeonline{mdnmozilla2019}, em JavaScript, funções (a qual será vista em um outro capítulo) e variáveis são hoisted (ou "levados ao topo"). Hoisting é um comportamento do JavaScript de mover declarações para o topo de um escopo (o escopo global ou da função em que se encontra). Isso significa que nós somos capazes de usar uma função ou variável antes mesmo de tê-las declaradas, ou em outras palavras: uma função ou variável podem ser declaradas depois de já terem sido utilizadas.
+
+\begin{lstlisting}
+  foo = 2
+  var foo;
+
+  // é implicitamente entendido como:
+  var foo;
+  foo = 2;
+\end{lstlisting}
+
+Assim, as variáveis quando são declaradas sem um valor, recebem o valor \textbf{undefined}, ou seja, sem tipo.
+
+\section{Constantes}
+
+Podemos criar elementos "somente leitura", nomeados constantes com a palavra chave \textbf{const}. A sintaxe de um identificador constante é a mesma para um identificador de variáveis: deve começar com uma letra ou sublinhado e pode conter caracteres alfabéticos, numéricos ou sublinhado. Porém, uma constante não pode ter seu valor mudado por meio de uma atribuição ou ser declarada novamente enquanto o \textit{script} estiver rodando.
+
+\begin{lstlisting}
+  const idade = 30
+  console.log(typeof idade) // Retornará number
+\end{lstlisting}
