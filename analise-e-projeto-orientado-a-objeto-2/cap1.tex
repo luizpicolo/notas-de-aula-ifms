@@ -203,9 +203,50 @@ atributos de um objeto.
 Anteriormente no estudo do objeto cachorro foi enumerado uma série de métodos 
 (ações), tais como: latir, babar, comer, sentar, etc.
 
-\section{Exercício 001}
+\section{Herança}
 
-Para satisfazer as necessidades de informatização de uma biblioteca 
+O conceito de herança é um dos conceitos fundamentais de POO. Herança, na prática, significa a possibilidade de construir objetos especializados que herdam as características de objetos mais generalistas, ou ainda, a herança uma maneira de reutilizar código a medida que podemos aproveitar os atributos e métodos de classes já existentes para gerar novas classes mais específicas que aproveitarão os recursos da classe hierarquicamente superior \cite{evandroeduardoseronruiz2008}.
+
+O conceito de herança mimetiza as características hierárquicas de vários sistemas reais, como por exemplo, os sistemas de classificação em biologia que, pode determinar como uma hierarquia o seguinte:
+
+\begin{itemize}
+    \item animais;
+    \item vertebrados e invertebrados;
+    \item mamíferos e aves;
+    \item entre outras características mais específicas
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.3]{imagens/heranca.png}
+  \caption{Diagrama representando a herança entre as classes}
+  \label{fig:cachorro-objeto}
+\end{figure}
+
+\subsection{Superclasses e subclasses}
+
+Em POO todo objeto de uma classe construída pelo usuário da linguagem é também um objeto de outra classe.Por exemplo, na hierarquia da área da saúde, podemos dizer que pessoa é uma superclasse e que empregados é uma subclasse de pessoa.
+
+Outra nomenclatura que é utilizada para especificar superclasses ou subclasses é a Generalização ou Especialização. No exemplo acima, pessoa é a generalização de empregado, e empregado é a especialização de pessoa conforme representado na Figura \ref{fig:sub-e-sup-classes}
+
+Uma máxima que podemos guardar é: 
+
+\begin{center}
+\textbf{\textit{Uma subclasse guarda a relação é um com a superclasse.}}    
+\end{center}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{imagens/sub-e-sup-classes.png}
+  \caption{Superclassses e Subclasses}
+  \legend{Fonte: \cite{articlelucas2009}}
+  \label{fig:sub-e-sup-classes}
+\end{figure}
+
+\section{Exercícios}
+
+\begin{enumerate}
+    \item Para satisfazer as necessidades de informatização de uma biblioteca 
 universitária um sistemas foi proposto para satisfazer algumas características:
 
 \begin{itemize}
@@ -219,3 +260,6 @@ universitária um sistemas foi proposto para satisfazer algumas características
 \end{itemize}
 
 Identifique os possíveis objetos com seus atributos e métodos respectivos.
+
+\item \textbf{Desafio:} Pesquise sobre os pontos negativos da orientação a objeto, principalmente sobre os conceitos de Coesão e Acoplamento.
+\end{enumerate}
