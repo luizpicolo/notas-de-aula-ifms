@@ -1,5 +1,14 @@
 \chapter{Introdução}
 
+\begin{flushright}
+  \textit{
+    Aprender é a única coisa que a mente nunca se cansa, \\
+    nunca tem medo e nunca se arrepende
+  } \\
+  
+  \textbf{Autor desconhecido}
+\end{flushright}
+
 \section{O que é JavaScript}
 
 O JavaScript foi criado na década de 90 por \textbf{Brendan Eich} a serviço da 
@@ -43,28 +52,35 @@ regidas pelo ECMAScript. Outro mais atual é o NodeJS ou simplesmente Node
 (https://nodejs.org/) que busca executar o JavaScript diretamente no servidor 
 (Node será aprofundado em capítulos posteriores).
 
-Para constatar este fato, execute o seguinte código no console em diferentes 
-navegadores: 
+\section{Executando JavaScript}
+
+Para constatar o fato citado na sessão anterior, vamos executar o seguinte código no console em diferentes navegadores. Para tanto, crie um arquivo \textbf{index.html} e um outro com o nome de \textbf{javascript.js}. No arquivo index.html adicione o seguinte código:
+
+\begin{lstlisting}
+  <!DOCTYPE HTML>
+  <html lang="pt-br">
+  <head>
+      <meta charset="utf-8">
+      <title>JS Exemplos</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="javascript.js"></script>
+  </body>
+  </html>
+\end{lstlisting}
+
+E no arquivo \textbf{javascript.js} adicione o seguinte:
 
 \begin{lstlisting}
 alert('Bem vindo(a) ao JavaScript')
 \end{lstlisting}
 
-O código acima possui o mesmo comportamento? Sim, o comportamento é o mesmo em 
-todos os navegadores. Contudo, a forma gráfica com que é apresentado faz parte 
-da implementação feita. Portanto, o desenvolvedor pode utilizar o JavaScript 
-nos navegadores sem muito problema, pois eles seguem não ideias da equipe que o 
-criou mas uma especificação que dita as regras de como determinadas funções 
-devem se comportar.
+O código acima possui o mesmo comportamento? Sim, o comportamento é o mesmo em todos os navegadores. Contudo, a forma gráfica com que é apresentado faz parte da implementação feita. Portanto, o desenvolvedor pode utilizar o JavaScript nos navegadores sem muito problema, pois eles seguem não ideias da equipe que o criou mas uma especificação que dita as regras de como determinadas funções devem se comportar.
 
 \section{Versões do JavaScript ou edições ECMAScript}
 
 Como foi visto, o ECMAScript é apenas a especificação. Contudo, ao estudar a 
-linguagem é muito comum escutar a abreviação de ECMAScript, ou seja, ES. Assim, 
-sempre que se ler ES seguido de um número, esse está fazendo referência a uma 
-edição do ECMAScript. Atualmente, existem oito edições do ECMAScript publicadas,
-sendo que, a partir de 2015, as edições começaram a receber o ano e não mais o 
-número da edição.
+linguagem é muito comum escutar a abreviação de ECMAScript, ou seja, ES. Assim, sempre que se ler ES seguido de um número, esse está fazendo referência a uma edição do ECMAScript. Atualmente, existem oito edições do ECMAScript publicadas, sendo que, a partir de 2015, as edições começaram a receber o ano e não mais o número da edição.
 
 \begin{enumerate}
   \item ECMAScript 1 (1997)	
@@ -83,8 +99,4 @@ número da edição.
 
 \section{Conclusão}
 Portanto, JavaScript se tornou a linguagem de programação mais popular no 
-desenvolvimento Web sendo suportada por todos os navegadores e responsável por 
-praticamente qualquer tipo de dinamismos em páginas web. Ao se usar todo o 
-poder que ela tem para oferecer, pode-se chegar a resultados impressionantes. 
-Alguns excelentes exemplos disso são aplicações Web complexas como Gmail, 
-Google Maps e Google Docs. 
+desenvolvimento Web sendo suportada por todos os navegadores e responsável por praticamente qualquer tipo de dinamismos em páginas web. Ao se usar todo o poder que ela tem para oferecer, pode-se chegar a resultados impressionantes. Alguns excelentes exemplos disso são aplicações Web complexas como Gmail, Google Maps e Google Docs. 

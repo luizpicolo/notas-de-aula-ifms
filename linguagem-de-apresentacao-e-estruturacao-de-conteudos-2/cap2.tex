@@ -1,4 +1,13 @@
-\chapter{Variáveis e Constantes}
+\chapter{Tipos de dados, Variáveis e Constantes}
+
+\begin{flushright}
+  \textit{
+    Aquele que não luta pelo futuro que quer, \\
+    deve aceitar o futuro que vier
+  } \\
+  
+  \textbf{Autor desconhecido}
+\end{flushright}
 
 Definir o que são variáveis ou constantes de forma geral é extremamente 
 simples. Uma variável nada mais é do que um espaço que o sistemas operacional 
@@ -11,48 +20,32 @@ disponibilizando-os para serem usados na construção de outros novos valores
 
 Mas como é criado este valores? Eu preciso entender de memoria, sistemas 
 operacionais, entre outros para poder alocar este valores? A resposta é não, 
-não é necessário a compreenção de tão baixo nível, basta que se compreenda como 
-é criar variáveis ou constantes em um determinada linguagem, que, neste caso, é 
-JavaScript.
+não é necessário a compreenção de tão baixo nível, basta que se compreenda como é criar variáveis ou constantes em um determinada linguagem, que, neste caso, é JavaScript.
 
 \section{Tipos de dados}
 
-Diferente das linguagens com tipagem forte, ou seja, que levam em consideração 
-o tipo para executar suas operações, o JavaScript possui tipagem fraca, a qual 
-é dado o tipo dos dados que serão alocados quando o código é executado. Outro 
-ponto é a tipagem dinâmica. Logo, não é necessário tipar uma variável quando 
-inicia-se o programa como é feito em Java, C, C++, entre outras linguagens, mas 
-esta responsabilidade é repassada ao compilador, que, caso do JavaScript em 
-questão, esse processo é dado o nome Inferência de Tipo.
+Diferente das linguagens com tipagem forte, ou seja, que levam em consideração o tipo para executar suas operações, o JavaScript possui tipagem fraca, a qual é dado o tipo dos dados que serão alocados quando o código é executado. Outro ponto é a tipagem dinâmica. Logo, não é necessário tipar uma variável quando inicia-se o programa como é feito em Java, C, C++, entre outras linguagens, mas esta responsabilidade é repassada ao compilador, que, caso do JavaScript em questão, esse processo é dado o nome Inferência de Tipo.
 
-A inferência de tipos é a capacidade do compilador entender/’adivinhar’ qual é 
-o tipo de dados de determinada variável sem ela ter sido declarada no código 
-escrito. 
+A inferência de tipos é a capacidade do compilador entender/’adivinhar’ qual é o tipo de dados de determinada variável sem ela ter sido declarada no código escrito. 
 
-Segundo a \citeonline{mdnmozilla2019}, JavaScript reconhece os seguintes tipos 
-de valores:
+Segundo a \citeonline{mdnmozilla2019}, JavaScript reconhece os seguintes tipos de valores:
 
 \begin{itemize}
   \item Números (en), como 42 ou 3,14159
   \item Valores lógicos (Booleanos) (en), true ou false
   \item Strings (en), tais como "Howdy!"
-  \item null, um palavra chave especial denotando um valor nulo; null também é 
-  um valor primitivo. Como JavaScript é sensível a maiúsculas, null não é a 
-  mesma coisa que Null, NULL, ou qualquer outra variante
+  \item null, um palavra chave especial denotando um valor nulo; null também é um valor primitivo. Como JavaScript é sensível a maiúsculas, null não é a mesma coisa que Null, NULL, ou qualquer outra variante
   \item undefined (en), uma propriedade de alto nível a qual possui o valor 
   indefinido; undefined também é um valor primitivo.  
 \end{itemize}
 
 Este conjunto de tipos de valores, relativamente pequeno, permite realizar 
-funções úteis nas aplicações. Não há distinção explícita entre números inteiros 
-e reais, para JavaScript, todos os números são tratados como \textit{Number}. 
+funções úteis nas aplicações. Não há distinção explícita entre números inteiros e reais, para JavaScript, todos os números são tratados como \textit{Number}. 
 
 \section{Variáveis}
 
 O JavaScript é uma linguagem de tipagem dinâmica. Isto significa que não é 
-necessário especificar o tipo de dado de uma variável quando ela for declarada, 
-e tipos de dados são automaticamento convertidos conforme necessário durante a 
-execução do script. Então, por exemplo, pode-se definir uma variável como:
+necessário especificar o tipo de dado de uma variável quando ela for declarada, e tipos de dados são automaticamento convertidos conforme necessário durante a execução do script. Então, por exemplo, pode-se definir uma variável como:
 
 \begin{lstlisting}
   var idade = 30
@@ -76,18 +69,13 @@ Outra forma de declarar variáveis é utilizando a palavra reservada \textbf{let
 
 Mas qual a diferença entre \textbf{var} e \textbf{let}? Neste momento não 
 possuimos o conhecimento necessário para diferenciar as duas palavras 
-reservadas. Contudo, veremos nos próximos capítulos como as duas se diferenciam 
-e quando utilizar uma ou outra.
+reservadas. Contudo, veremos nos próximos capítulos como as duas se diferenciam e quando utilizar uma ou outra.
 
 \subsection{Hoinsting}
 
 Segundo a \citeonline{mdnmozilla2019}, em JavaScript, funções (a qual será 
 vista em um outro capítulo) e variáveis são hoisted (ou "levados ao topo"). 
-Hoisting é um comportamento do JavaScript de mover declarações para o topo de 
-um escopo (o escopo global ou da função em que se encontra). Isso significa que 
-nós somos capazes de usar uma função ou variável antes mesmo de tê-las 
-declaradas, ou em outras palavras: uma função ou variável podem ser declaradas 
-depois de já terem sido utilizadas.
+Hoisting é um comportamento do JavaScript de mover declarações para o topo de um escopo (o escopo global ou da função em que se encontra). Isso significa que nós somos capazes de usar uma função ou variável antes mesmo de tê-las declaradas, ou em outras palavras: uma função ou variável podem ser declaradas depois de já terem sido utilizadas.
 
 \begin{lstlisting}
   foo = 2
@@ -114,3 +102,87 @@ novamente enquanto o \textit{script} estiver rodando.
   const idade = 30
   console.log(typeof idade) // Retornará number
 \end{lstlisting}
+
+\section{Tipo básico de dados}
+
+Essa sessão introduz os elementos que representam os tipos de valores e os operadores que podem atuar sobre eles presentes na linguagem que estamos estudanto.
+
+\subsection{Números}
+Em JavaScript todos números são tratados como \textit{Number}. Ao criar uma variável contendo um número inteiro ou decimal qualquer, esta variável em algumas linguagem seriam tratadas como Integer ou Float por exemplo. Contudo,em JavaScript, esta recebe o tipo \textit{Number} independente do seu valor.
+
+\begin{lstlisting}
+  var idade = 30
+  console.log(typeof idade) // Retornará number
+
+  var peso = 65.5
+  console.log(typeof peso) // Retornará number
+\end{lstlisting}
+
+\subsubsection{Números Especiais}
+
+Existem três valores especiais no JavaScript que são considerados números, mas não se comportam como números normais.
+
+Os dois primeiros são Infinity e -Infinity, que são usados para representar os infinitos positivo e negativo. O cálculo Infinity - 1 continua sendo Infinity, assim como qualquer outra variação dessa conta. Entretanto, não confie muito em cálculos baseados no valor infinito, pois esse valor não é matematicamente sólido e rapidamente nos levará ao próximo número especial: NaN \cite{haverbeke2014eloquent}.
+
+NaN é a abreviação de “not a number” (não é um número), mesmo sabendo que ele é um valor do tipo número. Você receberá esse valor como resultado quando, por exemplo, tentar calcular 0 / 0 (zero dividido por zero), Infinity - Infinity ou, então, realizar quaisquer outras operações numéricas que não resultem em um número preciso e significativo \cite{haverbeke2014eloquent}.
+
+\subsection{Strings}
+
+O próximo tipo básico de dado é a String. Strings são usadas para representar texto, e são escritas delimitando o seu conteúdo entre aspas. Ambas as aspas simples e duplas podem ser usadas para representar Strings, contanto que as aspas abertas sejam iguais no início e no fim.
+
+\begin{lstlisting}
+  var nome = "Genoveva"
+  console.log(typeof nome) // Retornará String
+\end{lstlisting}
+
+Existem outras maneiras de manipular as Strings, as quais serão discutidas nos próximos capitulos
+
+\subsection{Valores Booleanos}
+
+Você frequentemente precisará de um valor para distinguir entre duas possibilidades, como por exemplo “sim” e “não”, ou “ligado” e “desligado”. Para isso, o JavaScript possui o tipo Booleano, que tem apenas dois valores: verdadeiro e falso (que são escritos como true e false respectivamente).
+
+\begin{lstlisting}
+  console.log(3 > 2) // Retornará true
+  console.log(3 < 2) // Retornará false
+\end{lstlisting}
+
+\subsection{Valores Indefinidos}
+
+Existem dois valores especiais, null e undefined, que são usados para indicar a ausência de um valor com significado. Eles são valores por si sós, mas não carregam nenhum tipo de informação. A diferença de significado entre undefined e null é um acidente que foi criado no design do JavaScript, e não faz muita diferença na maioria das vezes. Podemos comprovar isso comparando ambos
+
+\begin{lstlisting}
+  console.log(null == undefined); // Retornará True
+\end{lstlisting}
+
+\section{Aritmética}
+
+Para que possamos realizar os calculos básicos em JavaScript, podemos usar os operadores que já estamos acostumados
+
+\begin{lstlisting}
+  2 + 2 // Soma
+  5 - 4 // Subtrai
+  2 * 3 // Multiplica
+  4 / 2 // Divide
+  144 % 12 // Retorna o Resto da divisão
+\end{lstlisting}
+
+Mas o que acontece quando adicionamos os operados acima a Strings? 
+
+\begin{lstlisting}
+  "Java" + "Script" // JavaScript 
+  "Java" - "Script" // NaN
+  "Java" * "Script" // NaN
+  "Java" / "Script" // NaN
+  "Java" % "Script" // NaN
+\end{lstlisting}
+
+Ou seja, com o valor Aritmético + as Strings são concatenadas.
+
+\section{Exercicios 001}
+
+\begin{enumerate}
+  \item Crie três variáveis contendo três notas. Depois, calcule a média das três notas e mostre-a na tela por meio de um \textbf{Alert}.  
+  \item Crie cinco variáveis contendo cinco números inteiros. Logo após imprima o quadrado de cada número.
+\end{enumerate}
+
+
