@@ -121,6 +121,10 @@ ele. Tais como:
 Tais características que descrevem um objeto são chamadas na orientação a 
 objeto de atributos.
 
+\section{Instância}
+
+Uma instância de uma classe é um novo objeto criado dessa classe, com o operador \textbf{new}. Instanciar uma classe é criar um novo objeto do mesmo tipo dessa classe. Uma classe somente poderá ser utilizada após ser instanciada.
+
 \section{Atributos}
 
 Os objetos do mundo real tem propriedades que por sua vez possuem valores. 
@@ -220,8 +224,13 @@ O conceito de herança mimetiza as características hierárquicas de vários sis
   \centering
   \includegraphics[scale=0.3]{imagens/heranca.png}
   \caption{Diagrama representando a herança entre as classes}
-  \label{fig:cachorro-objeto}
+  \label{fig:heranca}
 \end{figure}
+
+\section{Classes abstratas}
+
+Podemos dizer que as classes abstratas servem como modelo para outras classes que dela herdem (veremos herança nas próximas sessões), não podendo ser instanciada por si só. Para ter um objeto de uma classe abstrata é necessário criar uma classe mais especializada herdando dela e então instanciar essa nova classe. Os métodos da classe abstrata devem então serem sobrescritos nas classes filhas.
+
 
 \subsection{Superclasses e subclasses}
 
@@ -263,3 +272,112 @@ Identifique os possíveis objetos com seus atributos e métodos respectivos.
 
 \item \textbf{Desafio:} Pesquise sobre os pontos negativos da orientação a objeto, principalmente sobre os conceitos de Coesão e Acoplamento.
 \end{enumerate}
+
+\section{Mensagem}
+
+Mensagens são requisições enviadas de um objeto para outro, para que o objeto ``receptor'' forneça algum resultado desejado por meio da execução de uma operação. As trocas de mensagem funcionan como uma fábrica que
+recebe uma ordem de produção (mensagem de solicitação), processa essa ordem (operações) utilizando matéria-prima (atributos) e gera um produto final (mensagem de resposta).
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{imagens/analogia-mensagens.png}
+  \caption{Comportamento e comunicação entre objetos}
+  \label{}
+\end{figure}
+
+\section{Encapsulamento}
+
+Cada objeto é visto como o encapsulamento do seu estado interno, suas mensagens e seus métodos. A estrutura do estado e dos pares "mensagem - método" são todas definidas através da classe à qual o objeto pertence.
+
+\begin{itemize}
+  \item A encapsulação de dados com o código que os manipula em classes é a principal vantagem da Orientação a Objeto
+  \item No sentido de não quebrar a encapsulação, é muito importante que os membros de uma classe (atributos e métodos) sejam visíveis apenas onde estritamente necessário (A lei é: "Não posso quebrar o que não posso acessar").
+\end{itemize}
+
+\subsection{Especificadores de controle de acesso}
+
+Juntamente com a ideia de encapsulamento nós também possuimos os especificadores de controle de acesso ou visibilidades. A visibilidade é a maneira com a qual o desenvolvedor proibe ou permite acesso a determinados métodos ou atributos de uma classe, como pode ser visto na Figura \ref{fig:encapsulamento}. Neste sentido, o objeto formado possuirá as mesmas definições declaradas pela classe.
+
+\subsubsection{A visibilidade public}
+\begin{itemize}
+  \item Quem tem acesso à classe tem acesso também a qualquer membro com visibilidade public;
+  \item O alvo aqui é o programador cliente que usa suas classes;
+  \item É raro ter atributos públicos mas é comum ter métodos públicos.
+\end{itemize}
+
+\subsubsection{A visibilidade private}
+\begin{itemize}
+  \item O membro private não é acessível fora da classe;
+  \item A intenção aqui é permitir que apenas você que escreve a classe possa usar esse membro.
+\end{itemize}
+
+\subsubsection{A visibilidade protected}
+\begin{itemize}
+  \item O membro protected é acessível à classe e a suas subclasses;
+  \item A intenção é dar acesso ao programadores que estenderão sua classe.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{imagens/encapsulamento.png}
+  \caption{Encapsulamento}
+  \label{fig:encapsulamento}
+\end{figure}
+
+\section{Polimorfismo}
+
+É a propriedade que permite que a mesma mensagem seja enviada a diferentes objetos e que cada objeto execute a operação que é apropriada à sua classe. No caso de polimorfismo, é necessário que os métodos tenham exatamente a mesma identificação, sendo utilizado o mecanismo de redefinição de métodos.
+
+No exemplo utilizado na Figura \ref{fig:polimorfismo}, podemos perceber que diferentes objetos, quando é solicitado a mesmo ação, se comportam de maneira diferente. Similiar a objetos do mundo real, na Orientação a Objetos, o comportamento por meio do polimorfismo acontece da mesma forma. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{imagens/polianimais.jpg}
+  \caption{Polimorfismo}
+  \label{fig:polimorfismo}
+\end{figure}
+
+\section{Conceitos estudados até este momento}
+
+Para ilustrar, a tabela abaixo contém um resumo e um exemplo de todos estes conceitos.
+
+\begin{table}[H]
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{|l|l|l|}
+  \hline
+  \multicolumn{1}{|c|}{\textbf{Palavra-Chave}} & \multicolumn{1}{c|}{\textbf{Breve Definição}} & \multicolumn{1}{c|}{\textbf{Exemplo}} \\ \hline
+  Classe & \begin{tabular}[c]{@{}l@{}}Agrupamento de objetos similares que\\ apresentam os mesmos atributos e operações\end{tabular} & Indivíduo, caracterizando as pessoas do mundo \\ \hline
+  Atributo & \begin{tabular}[c]{@{}l@{}}Característica particular de uma ocorrência da\\ classe\end{tabular} & \begin{tabular}[c]{@{}l@{}}Indivíduo possui nome, sexo, data de\\ nascimento\end{tabular} \\ \hline
+  Operações & \begin{tabular}[c]{@{}l@{}}Lógica contida em uma classe para designar-lhe\\ um comportamento\end{tabular} & \begin{tabular}[c]{@{}l@{}}Cálculo da idade de uma pessoa em uma classe\\ (Indivíduo)\end{tabular} \\ \hline
+  Encapsulamento & \begin{tabular}[c]{@{}l@{}}Combinação de atributos e operações de uma\\ classe\end{tabular} & \begin{tabular}[c]{@{}l@{}}Atributo: data de nascimento\\ Operação: cálculo da idade\end{tabular} \\ \hline
+  Herança & \begin{tabular}[c]{@{}l@{}}Compartilhamento pela subclasse dos atributos\\ e operações da classe pai\end{tabular} & \begin{tabular}[c]{@{}l@{}}Subclasse (Eucalipto) compartilha atributos e\\ operações da classe (Árvore)\end{tabular} \\ \hline
+  Subclasse & Característica particular de uma classe & \begin{tabular}[c]{@{}l@{}}Classe (Árvore),Subclasses (Ipê, Eucalipto,\\ Jacarandá, etc.)\end{tabular} \\ \hline
+  Instância de Classe & \begin{tabular}[c]{@{}l@{}}Uma ocorrência específica de uma classe. É o\\ mesmo que objeto\end{tabular} & \begin{tabular}[c]{@{}l@{}}Uma pessoa, uma organização ou um\\ equipamento\end{tabular} \\ \hline
+  Objeto & \begin{tabular}[c]{@{}l@{}}Elemento do mundo real (natureza). Sinônimo\\ de instância de classe\end{tabular} & \begin{tabular}[c]{@{}l@{}}Pessoa “Fulano de Tal”, Organização “ACM”,\\ Equipamento “Extintor”\end{tabular} \\ \hline
+  Mensagem & \begin{tabular}[c]{@{}l@{}}Uma solicitação entre objetos para invocar certa\\ operação\end{tabular} & Informar idade da pessoa “Fulano de Tal” \\ \hline
+  Polimorfismo & \begin{tabular}[c]{@{}l@{}}Habilidade para usar a mesma mensagem para\\ invocar comportamentos diferentes do objeto\end{tabular} & \begin{tabular}[c]{@{}l@{}}Chamada da operação: “Calcular Saldo” de\\ correntista. Invoca as derivações\\ correspondentes para cálculo de saldo de\\ poupança, renda fixa, etc.\end{tabular} \\ \hline
+  \end{tabular}%
+  }
+  \end{table}
+
+  \section{Exercícios de fixação}
+
+  Baseando-se nas explicações em aula e em suas anotações, responda as seguintes questões:
+
+  \begin{enumerate}
+    \item O que é a Programação Orientada a Objetos e qual a sua relação com o Projeto orientado e objeto. Aponte as diferenças e similitudes em ambos os conceitos.
+    \item   Um ponto importante que deve ser claro para que possamos atingir o objetivo de nossa disciplina é o conceito sobre classes e objetos. Explique o que são e de exemplos do seu cotidiano para reforçar a ideia.
+    \item O que são atributos e métodos? Defina cada um e de exemplos para afirmar sua resposta. Obs: Caso possível, use o exemplo anterior.
+    \item Um dos pilares da orientação a objeto é a Herança. Desenho um gráfico, semelhante ao da Figura \ref{fig:heranca}, representado a sua Árvore Genealógica. Caso consiga, vá té seus bisavós. 
+    \item Utilizando o exercício anterior. Represente, por meio de setas, as possíveis trocas de mensagem entre os objetos que você pode identificar. 
+  \end{enumerate}
+  
+
+
+
+  
+
+  
+
+
+
