@@ -1,4 +1,4 @@
-\chapter{Introdução}
+\chapter{Introdução}\label{cap:cap1}
 
 \begin{flushright}
   \textit{
@@ -10,25 +10,20 @@
 \end{flushright}
 
 
-Para que haja um entendimento melhor sobre alguns conceitos que serão utilizados no decorrer desta disciplina, devemos, neste momento, recapitular alguns conhecimentos obtidos em semestres anteriores. Tais conhecimento se referem ao paradigma da orientação a objetos, ou, POO. Portanto, este capítulo introdutório terá como objetivo fazer este introdução sobre orientação a objeto. Contudo, apenas será revisto conceitos que serão utilizados em aula e não todo o conteúdo referente a POO.
+Para que haja um entendimento melhor sobre alguns conceitos que serão utilizados no decorrer dessa disciplina, devemos, neste momento, recapitular alguns conhecimentos obtidos em semestres anteriores. Tais conhecimento se referem ao \textbf{paradigma da orientação a objetos}, ou, \textbf{POO}. 
+
+Portanto, esse capítulo introdutório, terá como objetivo introduzir/recapitular os conceitos sobre o paradigma da orientação a objeto. Contudo, apenas será revisto tais conceitos, os quais, serão utilizados em aula e não retomado todo o conteúdo referente ao tema.
 
 \section{Orientação a objeto}
 
-Programação Orientada a Objetos (também conhecida pela sua sigla POO) é um 
+o Paradigma da Orientada a Objetos (também conhecida pela sua sigla POO) é um 
 modelo de análise, projeto e programação de software baseado na composição e 
-interação entre diversas unidades chamadas de objetos. A POO é um dos 4 
-principais paradigmas de programação (as outras são programação imperativa, 
-funcional e lógica). A programação orientada a objetos se ocupa de realizar um projeto de software utilizando
-uma linguagem de programação orientada a objetos, por exemplo, a linguagem Java, que
-aceita a implementação direta de objetos e fornece recursos para definir as classes de
-objetos \cite{sommerville2003engenharia}.
+interação entre diversas unidades chamadas de \textbf{objetos}. O POO é um dos 4 
+principais paradigmas, os outras são o imperativa,  funcional e lógica). Já a programação orientada a objetos se ocupa de realizar um projeto de software utilizando uma linguagem de programação orientada a objetos, por exemplo, a linguagem Java, que aceita a implementação direta de objetos e fornece recursos para definir as classes de objetos \cite{sommerville2003engenharia}.
 
 \subsection{Projeto orientado e objeto}
 
-Já o projeto orientado a objetos é uma estratégia de projeto em que os projetistas de sistema
-pensam em termos de ‘coisas’, em vez de operações ou funções. O sistema em funcionamento
-é constituído de objetos que interagem entre si, que mantêm seu próprio estado local e fornecem
-operações com base nessas informações de estado \cite{sommerville2003engenharia}.
+O projeto orientado a objetos é uma estratégia em que os projetistas de sistema pensam em termos de ``coisas'', em vez de operações ou funções. O sistema em funcionamento é constituído de objetos que interagem entre si mantendo seu próprio estado local e fornecem operações com base nessas informações de estado \cite{sommerville2003engenharia}.
 
 \begin{figure}[H]
   \centering
@@ -38,36 +33,22 @@ operações com base nessas informações de estado \cite{sommerville2003engenha
   \label{fig:figura-01}
 \end{figure}
 
-Como afirma \citeonline{sommerville2003engenharia}, projeto orientado a objetos é parte do desenvolvimento orientado a objetos, em que uma
-estratégia orientada a objetos é utilizada em todo o processo de desenvolvimento:
+Como afirma \citeonline{sommerville2003engenharia}, projeto orientado a objetos é parte do desenvolvimento orientado a objetos, em que uma estratégia orientada a objetos é utilizada em todo o processo de desenvolvimento:
 
 \begin{itemize}
-  \item A \textbf{análise orientada a objetos} se dedica a desenvolver um modelo orientado a objetos do
-  domínio de aplicação. Os objetos identificados refletem entidades e operações que estão
-  associadas com o problema a ser resolvido.
+  \item A \textbf{análise orientada a objetos} se dedica a desenvolver um modelo orientado a objetos do domínio de aplicação. Os objetos identificados refletem entidades e operações que estão associadas com o problema a ser resolvido.
 
-  \item O \textbf{projeto orientado a objetos} se dedica a desenvolver um modelo orientado a objetos de
-  um sistema de software para implementar os requisitos identificados. Os objetos em um
-  projeto orientado a objetos estão relacionados à solução do problema que está sendo resolvido.
-  É possível que haja relacionamentos próximos entre alguns objetos do problema e
-  alguns objetos da solução, mas o projetista, inevitavelmente, precisa adicionar novos objetos
-  e transformar objetos do problema, a fim de implementar a solução.
+  \item O \textbf{projeto orientado a objetos} se dedica a desenvolver um modelo orientado a objetos de um sistema de software para implementar os requisitos identificados. Os objetos em um projeto orientado a objetos estão relacionados à solução do problema que está sendo resolvido. É possível que haj relacionamentos próximos entre alguns objetos do problema e alguns objetos da solução, mas o projetista, inevitavelmente, precisa adicionar novos objetos e transformar objetos do problema, a fim de implementar a solução.
 
-  \item A \textbf{programação orientada a objetos} se ocupa de realizar um projeto de software utilizando
-  uma linguagem de programação orientada a objetos, por exemplo, a linguagem Java, que
-  aceita a implementação direta de objetos e fornece recursos para definir as classes de
-  objetos.
+  \item A \textbf{programação orientada a objetos} se ocupa de realizar um projeto de software utilizando uma linguagem de programação orientada a objetos, por exemplo, a linguagem Java, que aceita a implementação direta de objetos e fornece recursos para definir as classes de objetos.
 \end{itemize}
 
 A transição entre esses estágios de desenvolvimento deve ser contínua e direta,
-com a mesma notação utilizada em cada estágio. Mover para o próximo estágio
-envolve aprimorar o estágio anterior, adicionando detalhes às classes
-existentes de objetos e inventando novas classes, a fim de oferecer
-funcionalidade adicional.
+com a mesma notação utilizada em cada um. Mover para o próximo envolve aprimorar o anterior, adicionando detalhes às classes existentes de objetos e inventando novas a fim de oferecer funcionalidades adicionais.
 
 \section{Classes e objeto}
 
-Para \cite{sommerville2003engenharia} ‘objeto’ e ‘orientado a objetos’ são
+Para \cite{sommerville2003engenharia} ``objeto'' e ``orientado a objetos'' são
 amplamente utilizados e aplicados a diferentes tipos de entidades, métodos de
 projeto, sistemas e linguagens de programação. Contudo, existe uma aceitação
 geral de que um objeto é um encapsulamento de informações, e isso se reflete na
@@ -86,15 +67,11 @@ definição de um objeto e de uma classe de objeto a seguir:
 
 Em outras palavras, podemos dizer que classe é uma descrição generalizada que
 descreve uma coleção de objetos similares, o qual, segundo 
-\citeonline{pressman2016engenharia} é um conceito orientado a objeto que 
+\citeonline{pressman2016engenharia}, é um conceito orientado a objeto que 
 encapsula dados e abstrações procedurais necessárias para descrever o conteúdo 
 e comportamento de alguma entidade do mundo real.
 
-Exemplos de objetos são: os objetos físicos (um livro, uma caneta), funções 
-de pessoas para os sistemas (funcionário, cliente), eventos (uma compra, um 
-telefonema), interações entre outros objetos (um item de uma nota fiscal é uma 
-interação entre uma compra e um produto do estoque) e lugares (loja matriz, 
-revenda nordeste).
+Exemplos de objetos são: os \textbf{objetos físicos} (um livro, uma caneta), \textbf{funções de pessoas} para os sistemas (funcionário, cliente), eventos (uma compra, um  telefonema), \textbf{interações} entre outros objetos (um item de uma nota fiscal é uma interação entre uma compra e um produto do estoque) e \textbf{lugares} (loja matriz, revenda nordeste).
 
 Para fins de estudo, e com objetivo mais didático, usaremos um cachorro como 
 nosso ``objeto'':
@@ -121,18 +98,17 @@ ele. Tais como:
 Tais características que descrevem um objeto são chamadas na orientação a 
 objeto de atributos.
 
-\section{Instância}
-
-Uma instância de uma classe é um novo objeto criado dessa classe, com o operador \textbf{new}. Instanciar uma classe é criar um novo objeto do mesmo tipo dessa classe. Uma classe somente poderá ser utilizada após ser instanciada.
+%\section{Instância}
+%
+%Uma instância de uma classe é um novo objeto criado dessa classe, com o operador \textbf{new}. Instanciar uma classe é criar um novo objeto do mesmo tipo dessa classe. Uma classe somente poderá ser utilizada após ser instanciada.
 
 \section{Atributos}
 
 Os objetos do mundo real tem propriedades que por sua vez possuem valores. 
 Estes valores determinam o estado do objeto. Assim, na orientação a objeto, 
-essas propriedades são chamadas de atributos. Logo, podemos dizer que esses atributos dos objetos são semelhantes a variáveis ou campos que
-guardam os variados valores que os objetos podem receber como características.
-\textbf{O estado de um objeto é um grupo de valores que estão em seus atributos em um
-certo momento}. \\
+essas propriedades são chamadas de atributos. Logo, podemos dizer que esses atributos são semelhantes a variáveis ou campos que guardam os variados valores que os objetos podem receber como características.
+
+\textbf{O estado de um objeto é um grupo de valores que estão em seus atributos em um certo momento}. \\
 
 \begin{minipage}{\textwidth}
   \begin{minipage}[b]{0.49\textwidth}
@@ -158,8 +134,7 @@ certo momento}. \\
     \end{minipage}
   \end{minipage} \\
 
-  Outro objeto cachorro teria valores diferentes para estes mesmos 
-  atributos, como exemplo disto temos:
+  Outro objeto cachorro teria valores diferentes para estes mesmos atributos, como exemplo disto temos:
 
   \begin{minipage}{\textwidth}
     \begin{minipage}[b]{0.49\textwidth}
@@ -185,10 +160,7 @@ certo momento}. \\
       \end{minipage}
     \end{minipage} \\ 
 
-    Para que os atributos de um objeto mudem de valor isso deve ser feito 
-    exclusivamente por estímulos externos ou internos. Assim, a única maneira 
-    de alterar os atributos dos objetos é disparando eventos que geram a 
-    mudança desses estados no objeto.
+Para que os atributos de um objeto mudem de valor isso deve ser feito  exclusivamente por estímulos externos ou internos. Assim, a única maneira  de alterar os atributos dos objetos é disparando eventos que geram a mudança desses estados no objeto.
 
 \section{Métodos}
 
@@ -252,7 +224,7 @@ Uma máxima que podemos guardar é:
   \label{fig:sub-e-sup-classes}
 \end{figure}
 
-\section{Exercícios}
+\section{Exercícios de fixação}\label{exer:001}
 
 \begin{enumerate}
     \item Para satisfazer as necessidades de informatização de uma biblioteca 
