@@ -1,3 +1,4 @@
+\setcounter{chapter}{1}
 \chapter{Diagrama de classes}
 
 \begin{flushright}
@@ -126,10 +127,99 @@ Já, uma associação N-ária, também conhecida como ternária, são aquelas ma
 	\label{fig:ass-enaria}
 \end{figure}
 
+\subsubsection{Agregação}
+
+É um tipo especial de associação em que tenta-se demonstrar que as informações de um objeto (chamado objeto-todo) precisam ser complementados pelas informações contidas em um ou mais objetos de outra classe (chamados objetos-parte); conhecemos como todo/parte.
+
+Esse tipo de associação é representada por um losango sem preenchimento no final da associação, sempre do lado do objeto \textbf{todo}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{imagens/agregacao2.jpg}
+	\caption{Agregação}
+	\legend{Fonte: http://www.cpscetec.com.br/adistancia/aula5.html}
+	\label{fig:agregacao}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{imagens/7.JPG}
+	\caption{Agregação}
+	\legend{Fonte: http://sgvclin.altervista.org/rea-uml/pop/pop-3/popup-texto3.html}
+	\label{fig:agregacao2}
+\end{figure}
+
+\subsubsection{Composição}
+
+Pode-se dizer que composição é uma variação da agregação. Uma composição tenta representar também uma relação todo - parte. No entanto, na composição o objeto-pai (todo) é responsável por criar e destruir suas partes. Em uma composição um mesmo objeto-parte não pode se associar a mais de um objeto-pai.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{imagens/DC_Composicao.jpg}
+	\caption{Composição}
+	\legend{Fonte: http://www.cpscetec.com.br/adistancia/aula5.html}
+	\label{fig:composicao1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{imagens/8.JPG}
+	\caption{Composição}
+	\legend{Fonte: http://sgvclin.altervista.org/rea-uml/pop/pop-3/popup-texto3.html}
+	\label{fig:composicao2}
+\end{figure}
+
+\subsubsection{Especialização/Generalização}
+
+Especialização/Generalização ou também chamada de Herança. Este tipo de associação ocorre quando uma classe gera novas classes que sejam suas cópias perfeitas e a partir destas classes é possível adaptá-las ao meio em que sejam necessárias. A classe que é usada como referência é conhecida por \textbf{superclasse / generalização} ou classe mãe, a classe criada com base nessa superclasse é conhecida como \textbf{sub-classe / especialização} ou classe filha. Na classe filha, podemos redefinir métodos e criar novos campos.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{imagens/heranca.jpg}
+	\caption{Especialização/Generalização}
+	\legend{Fonte: http://www.cpscetec.com.br/adistancia/aula5.html}
+	\label{fig:composicao1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{imagens/9.JPG}
+	\caption{Especialização/Generalização}
+	\legend{Fonte: http://sgvclin.altervista.org/rea-uml/pop/pop-3/popup-texto3.html}
+	\label{fig:composicao2}
+\end{figure}
+
+\subsection{Encapsulamento}
+
+Conceitua-se encapsulamento como sendo o processo utilizado para proteger os campos e operações de uma classe (atributos e métodos), permitindo que apenas os membros públicos sejam acessados pelos usuários de determinada classe.
+
+Para atingir o encapsulamento, uma das formas é definindo a visibilidade das propriedades e dos métodos de um objeto. A visibilidade define a forma como essas propriedades devem ser acessadas.
+
+\begin{table}[H]
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|}
+			\hline
+			\textbf{Público - public} & \begin{tabular}[c]{@{}l@{}}Nível de acesso livre. Indica que o método ou atributo da classe é público, \\ ou seja, pode-se acessar este atributo, ou executar esse método, por qualquer código de programa. \\ Usamos o sinal (+) na notação UML para simbolizar essa visibilidade.\end{tabular} \\ \hline
+			\textbf{Privado - private} & \begin{tabular}[c]{@{}l@{}}Nível mais protegido. Mebros declarados como private, só podem ser acessados dentro \\ da classe em que foram declarados. Usamos o sinal (-) na notação UML para simbolizar essa \\ visibilidade.\end{tabular} \\ \hline
+			\textbf{Protegido - protected} & \begin{tabular}[c]{@{}l@{}}Nível de acesso intermediário. Serve para que o método ou o atributo seja público dentro \\ do código da própria classe e de qualquer classe que herde daquela onde está o método ou \\ propriedade protected. É privado e não acessível de qualquer outra parte. Usamos o sinal (\#) \\ na notação UML para simbolizar essa visibilidade.\end{tabular} \\ \hline
+		\end{tabular}%
+	}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{imagens/DC_vip.jpg}
+	\caption{Encapsulamento}
+	\legend{Fonte: http://www.cpscetec.com.br/adistancia/aula5.html}
+	\label{fig:encapsulamento}
+\end{figure}
+
 \subsection{Exercícios de fixação}
 
 \begin{enumerate}
+	\item Uma empresa possui fornecedores de peças. Aos fornecedores é atribuído um código que os identifica univocamente. O mesmo procedimento é usado para as peças. Os fornecedores possuem ainda um nome, endereço e telefone. As peças são caracterizadas por designação e cor. As cores podem ser preto, branco, cinzento e vermelho. Os fornecimentos são feitos a um dado preço e numa dada data.
 	\item Cada escola da comunidade Alfa é dividida em um ou mais departamentos (letras, matemática, etc.). Um departamento é chefiado por um de seus professores, mas há casos em que esse cargo está vago. Não há acúmulo de chefia. Professores podem estar alocados em um ou mais departamentos. Um departamento pode ser criado sem que haja professores a ele alocados. Um aluno pode estar matriculado em mais de uma escola e pode frequentar mais de um curso na mesma escola. Escolas podem não ter alunos matriculados. Cada departamento tem seu conjunto específico de cursos (pelo menos um). Cada curso pode ser ministrado por um ou mais professores. Cada professor pode ministrar qualquer número de cursos.
 	\item Para cada obra armazena-se o ISBN, o(s) autor(es), o título, a editora, o assunto e a edição. Os exemplares possuem a data de inclusão no acervo e uma marcação de disponibilidade (as bibliotecas só cadastram obras que constam do acervo).
 	As bibliotecas emprestam livros aos alunos e aos membros da comunidade. Alunos podem retirar até 2 títulos; membros da comunidade podem retirar apenas um título por vez.
+	\item Uma empresa efetua encomendas, numeradas. Cada encomenda possui um número variável de itens, cada um das quais diz respeito a um produto a ser encomendado. Os itens possuem uma ordem numérica dentro de cada encomenda. A encomenda tem uma data e dirige-se a um só fornecedor. Tanto os produtos como os fornecedores são identificados por um código próprio. Os itens incluem o número dom item, o código do produto, o preço unitário e a quantidade encomendada.
 \end{enumerate}
