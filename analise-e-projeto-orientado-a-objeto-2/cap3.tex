@@ -11,13 +11,67 @@
 
 A tecnologia de orientação a objetos é consolidada como a forma mais usual para o desenvolvimento de softwares. Já, quando pensamos em banco de dados, os bancos relacionais forma os que tiveram maior exito e, sem dúvida, os Sistemas Gerenciadores de Banco de dados Relacionais (SGBDR) dominam o mercado. 
 
-No entanto, essas duas tecnologias surgiram por meio de princípios teóricos muito diferentes. 
+No entanto, essas duas tecnologias surgiram por meio de princípios teóricos muito diferentes. Segundo \citeonline{bezerra2016principios} o descasamento de informações \textit{(impedance mismatch)} é um termo utilizado para denotar o problema das diferenças entre as representações do modelo de objetos e do modelo relacional.
 
-Segundo \citeonline{ferreira2009banco}, MER (Modelo entidade-relacional) é um modelo de dados conceitual de alto-nível, ou seja, seus conceitos foram projetados para serem compreensíveis a usuários, descartando detalhes de como os dados são armazenados. Atualmente, o MER é usado principalmente durante o processo de projeto da base de dados.
+"Os princípios básicos do paradigma da orientação a objetos e do modelo relacional são bastante diferentes. No modelo de objetos, os elementos (objetos) correspondem a abstrações de comportamento. No modelo relacional, os elementos correspondem a dados no formato tabular \cite{bezerra2016principios}". Assim, neste capítulo, vamos apresentamos alguns detalhes a respeito dos diversos aspectos relativos ao mapeamento de objetos para um mecanismo de armazenamento persistente.
 
-\section{Conceitos do Modelo entidade-relacionamento}
+\section{Projeto de banco de dados}
 
-O objeto básico que o MER representa é a \textbf{entidade}. Uma entidade é algo do mundo real que possui uma existência independente. Uma entidade pode ser um objeto com uma existência
-física - uma pessoa, carro ou empregado - ou pode ser um objeto com existência conceitual -
-uma companhia, um trabalho ou um curso universitário. Cada entidade tem propriedades
-particulares, chamadas \textbf{atributos}, que a descrevem \cite{ferreira2009banco}. 
+Uma das principais atividades do projeto é o desenvolvimento do banco de dados. Essa atividade, durante o processo, normalmente é chamada de projeto de banco de dados. Tal projeto envolve diversas atividades, tais como:
+
+\begin{itemize}
+	\item Construção do esquema do banco de dados.
+	\item Criação de índices2 para agilizar o acesso aos dados armazenados.
+	\item Definição das estruturas de dados a serem utilizadas no armazenamento físico dos dados.
+	\item Definição de visões sobre as dados armazenados.
+	\item Atribuição de direitos de acesso (que usuários podem acessar que recursos).
+	\item Definição de políticas de backup dos dados.
+\end{itemize}
+
+\subsection{Conceitos básicos do modelo de dados relacionais}
+
+O modelo relacional, segundo \citeonline{bezerra2016principios}, se fundamenta no conceito de relação. De forma bastante simplista, pode-se pensar em uma relação como uma tabela, composta de linhas e de colunas. Cada relação possui um nome. Cada coluna de uma relação possui um nome e um domínio.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{imagens/banco1.png}
+	\caption{Exemplo de relações em um banco de dados}
+	\legend{Fonte: \cite{bezerra2016principios}}
+	\label{fig:figura-01-banco-01}
+\end{figure}
+
+\subsubsection{Chave Primária}
+Um conceito importante no modelo relacional é o de \textbf{chave primária}. Uma chave primária é uma coluna ou conjunto de colunas cujos valores podem ser utilizados para identificar unicamente cada linha de uma relação \cite{bezerra2016principios}. Note que a Figura \ref{fig:figura-01-banco-01} possue uma coluna chamada id. Essa coluna é a chave primária ds relação na qual aparece.
+
+\subsubsection{Chave Estrangéira}
+Outro conceito importante do modelo relacional é o de \textbf{chave estrangeira}. Linhas de uma relação podem estar associadas às de outras relações. Estas associações são representadas pela única maneira possível, considerando-se os recursos de notação do modelo relacional: deve existir, em uma das duas relações, uma coluna cujos valores fazem referência aos de uma coluna da outra relação. Na terminologia do modelo relacional, esta coluna de referência é denominada chave estrangeira. Em nossa Figura \ref{fig:figura-01-banco-01} a chave estrangeira é representada pelo campo idGerente, o qual apresenta-se tracejado.
+
+\section{Mapeamento de objetos para o modelo relacional} 
+
+Quando utilizamos um SGBD para gerenciar nossa base de dados e nosso armazenamento persistente de informações para um sistema de software orientado a objetos, há a necessidade de se realizar o mapeamento dos valores de atributos de objetos persistentes do sistema para tabelas. 
+
+Assim, em nossa próxima sessão vamos aprender o procedimento de mapeamento de diversos elementos do modelo de classes para o modelo relacional. 
+
+\subsection{Classe e seus atributos}
+
+Segundo \citeonline{bezerra2016principios}, classes são mapeadas para relações. O caso mais simples é o de mapear cada classe como uma relação e cada um de seus atributos como uma coluna da relação correspondente. No entanto, muito frequentemente não há uma correspondência unívoca entre classes e relações. Pode ser que várias classes sejam mapeadas para uma única relação ou que uma classe seja mapeada para várias relações.
+
+Para atributos o que vale de forma geral é que um atributo será mapeado para uma ou mais colunas. Lembre-se, também, de que nem todos os atributos são persistentes. Por exemplo, pode ser que uma classe Pedido tenha um atributo derivado, total, utilizado para guardar o valor total a ser pago por um pedido, mas que este atributo não seja armazenado no banco de dados.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{imagens/mapeamento01.png}
+	\caption{Classe cliente é CPF}
+	\legend{Fonte: \cite{bezerra2016principios}}
+	\label{fig:figura-01-banco-02}
+\end{figure}
+
+Considere a classe apresentada na Figura \ref{fig:figura-01-banco-02}. A Tabela 12-2 exibe duas alternativas de mapeamento possíveis para essa classe. Note que, em ambos os casos, o atributo derivado idade não é mapeado. Além disso, nas duas alternativas, as classes Cliente e CPF são mapeadas para uma única relação. No entanto, na primeira alternativa, o CEP de um cliente é mapeado para uma relação separada e o atributo CEP da classe é dividido em duas partes (número e dígitoVerificador).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{imagens/mapeamento02.png}
+	\caption{Classe cliente é CPF}
+	\legend{Fonte: \cite{bezerra2016principios}}
+	\label{fig:figura-01-banco-03}
+\end{figure}
