@@ -110,4 +110,119 @@ Quando há uma associação um-para-um entre \textbf{Ca} e \textbf{Cb}, deve-se 
 
 Contudo, há casos que a associação um-para-um pode ser mapeada para uma única relação, como no caso do diagrama apresentado na Figura \ref{fig:figura-01-banco-02}
 
-\subsubsection{Associação um para muitos}
+\subsubsection{Associação um-para-muitos}
+
+Em uma associação um-para-muitos entre objetos de \textbf{Ca} e de \textbf{Cb}, seja \textbf{Ca} a classe na qual cada objeto se associa com muitos objetos da classe \textbf{Cb}. Neste caso, deve-se adicionar uma chave estrangeira em \textbf{Ca} para referenciar a chave primária de \textbf{Cb} \cite{bezerra2016principios}.
+
+Como exemplo, considere novamente a Figura \ref{fig:figura-01-banco-04}, na qual se apresenta a associação um para muitos Trabalha. A seguir é apresentada uma extensão do mapeamento anterior considerando essa associação.
+
+\textbf{Departamento(id, sigla, nome, idEmpregadoGerente)}
+
+\textbf{Empregado(id, matrícula, CPF, nome, endereço, CEP, idDepartamento)}
+
+\subsubsection{Associações de conectividade muitos para muitos}
+
+Quando há uma associação de conectividade muitos para muitos entre objetos de Ca e de Cb, uma relação de associação deve ser criada. Uma relação de associação tem o objetivo de representar a associação muitos para muitos entre duas ou mais relações \cite{bezerra2016principios}.
+
+\textbf{Departamento(id, sigla, nome, idEmpregadoGerente)}
+
+\textbf{Empregado(id, matrícula, CPF, nome, endereço, CEP, idDepartamento)}
+
+\textbf{Alocação(id, idProjeto, idEmpregado, nome, verba)}
+
+\textbf{Projeto(id, nome, verba)}
+
+Assim, de forma geral, independente da conectividade, o conceito de chave estrangeira é sempre utilizado quando realizamos o mapeamento. Esta técnica é a mesma utilizada para a \textbf{agregação} ou para a \textbf{composição}. Contudo, para que se possa alcançar o comportamento esperado, devemos utilizar técnicas que envolvem os gatilhos (\textbf{triggers}) e procedimentos armazenados (\textbf{stored procedures}), os quais não serão tratados neste capítulo. 
+
+\subsubsection{Associação reflexiva}
+
+Uma associação reflexiva, ou também conhecida como auto-associação, é um tipo especial de associação. Contudo, o mapeamento aplicado a associações é igualmente ao aplicado em outras associações.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{imagens/reflexiva.png}
+	\caption{Associações reflexivas entre objetos da classe Empregado}
+	\legend{Fonte: \cite{bezerra2016principios}}
+	\label{fig:figura-01-banco-05}
+\end{figure}
+
+Um possível mapeamento desse diagrama é apresentado a seguir. Note que as chaves estrangeiras idCônjunge e idSupervisor foram definidas na relação Empregado como era esperado, visto que ambas as associações são reflexivas.
+
+\textbf{Empregado(id, matrícula, nome, dataContratação, idCônjunge, idSupervisor)}
+
+\subsubsection{Associação ternária}
+
+Associações ternárias, ou também conhecidas como associações n-árias, podem ser mapeadas por meio de um procedimento semelhante ao utilizado para associações binárias de conectividade muitos para muitos. Uma relação para representar a associação é criada e são adicionadas nelas chaves estrangeiras para as \textbf{n} classes participantes da associação. Se a associação ternária possuir uma classe associativa, os atributos dela são mapeados como colunas da relação de associação \cite{bezerra2016principios}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{imagens/terminaria.png}
+	\caption{Associação terminária/N-ária}
+	\legend{Fonte: \cite{bezerra2016principios}}
+	\label{fig:figura-01-banco-06}
+\end{figure}
+
+\subsubitem{Generalização}
+
+Há basicamente três alternativas de se mapear relacionamentos de generalização.
+
+\begin{enumerate}
+	\item Uma relação para cada classe da hierarquia;
+	\item Uma relação para toda a hierarquia;
+	\item Uma relação para cada classe concreta da hierarquia.
+\end{enumerate}
+
+Assim, vamos aplicar as três formas de mapeamento para o diagrama de classe abaixo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{imagens/generalizacao.png}
+	\caption{Hierarquia de generalização}
+	\legend{Fonte: \cite{bezerra2016principios}}
+	\label{fig:figura-01-banco-07}
+\end{figure}
+
+Realizando o mapeamento por meio das três alternativas possíveis, obtemos o seguinte resultado:
+\\
+
+Alternativa 1
+
+\textbf{Contribuinte(id, endereço)}
+
+\textbf{PessoaFísica(id, nome, dataNascimento, CPF, idContribuinte)}
+
+\textbf{PessoaJurídica(id, CNPJ, razãoSocial, idContribuinte)}
+\\
+
+Alternativa 2
+
+\textbf{Pessoa(id, nome, endereço, dataNascimento, CPF, CNPJ, razãoSocial, tipo)
+}
+\\
+
+Alternativa 3
+
+\textbf{PessoaFísica(id, dataNascimento, nome, endereço, CPF)}
+
+\textbf{PessoaJurídica(id, CNPJ, endereço, razãoSocial)}
+
+
+\section{Exercício de fixação}
+
+Utilizando os conceitos até o momento apresentados, realize o mapeamento dos diagramas abaixo.
+
+1. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{imagens/dominio1.jpg}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{imagens/farmacia_classdiagram.jpg}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{imagens/diagrama-de-classe-2.jpg}
+\end{figure}

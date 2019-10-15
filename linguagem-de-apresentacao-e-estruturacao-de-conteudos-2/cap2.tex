@@ -178,11 +178,94 @@ Mas o que acontece quando adicionamos os operados acima a Strings?
 
 Ou seja, com o valor Aritmético + as Strings são concatenadas.
 
-\section{Exercicios 001}
+\section{Exercícios de fixação}
 
 \begin{enumerate}
-  \item Crie três variáveis contendo três notas. Depois, calcule a média das três notas e mostre-a na tela por meio de um \textbf{Alert}.  
-  \item Crie cinco variáveis contendo cinco números inteiros. Logo após imprima o quadrado de cada número.
+	\item Crie três variáveis contendo três notas. Depois, calcule a média das três notas e mostre-a na tela por meio de um \textbf{Alert}.  
+	\item Crie cinco variáveis contendo cinco números inteiros. Logo após imprima o quadrado de cada número.
 \end{enumerate}
 
+\section{Concatenação e interpolação de Strings}
 
+Concatenar uma String nada mais é do que executar a união entre duas partes. Como visto, podemos concatenar duas string utilizando o operador +. da seguinte forma:
+
+\begin{lstlisting}
+var string1 = "Java";
+var string2 = "Script";
+
+console.log(string1 + string2)
+\end{lstlisting}
+
+Mas, existe uma nova fora para que possamos unir strings, que usa a ideia de interpolação.
+
+\begin{lstlisting}
+	var string1 = "Java";
+	var string2 = "Script";
+	
+	\\ Usaremos o simbolo da crase
+	console.log(`${string1}${String2}`)
+\end{lstlisting}
+
+\section{prompt e confirm}
+
+O ambiente fornecido pelos navegadores contém algumas outras funções para mostrar janelas. Você pode perguntar a um usuário uma questão Ok/Cancel usando confirm. Isto retorna um valor booleano: true se o usuário clica em OK e false se o usuário clica em Cancel \cite{haverbeke2014eloquent}.
+
+\begin{lstlisting}
+	confirm("Deseja realmente deletar este dado?")
+\end{lstlisting}
+
+Já o comando \textbf{prompt} pode ser usado para criar uma questão ``aberta''. O primeiro argumento é a questão; o segundo é o texto que o usuário inicia. Uma linha do texto pode ser escrita dentro da janela de diálogo, e a função vai retornar isso como uma string.
+
+\begin{lstlisting}
+prompt("Digite seu nome")
+\end{lstlisting}
+
+\section{Exercicios de fixação}
+
+\begin{enumerate}
+	\item Faça um programa que leia duas string e exiba uma mensagem com o resultado da concatenação das mesmas. 
+	
+	\item Faça um programa que leia dois números. Logo após, some os mesmos e exiba uma mensagem utilizando o console.log com o resultado. Pesquisa a forma como podemos converter String em Number em JavaScript 
+\end{enumerate}
+
+\section{Condicional}
+
+Quando seu programa contém mais que uma declaração, as declarações são executadas, previsivelmente, de cima para baixo. Assim, caso tenhamos duas condições, precisamos de algum mecanismo que possa nos auxiliar a executar uma condição ou outra. Assim, tanto no JavaScript quanto em outras linguagens de programação, podemos utilizar a palavra-chave reservada \textbf{if} para expressar uma condição. No caso mais simples, nós queremos que algum código seja executado se, e somente se, uma certa condição existir. 
+
+\begin{lstlisting}
+	var idade = Number(prompt('Digite sua idade'));
+	if (idade >== 18){
+		alert("Maior de idade")	
+	}
+\end{lstlisting}
+
+Contudo, normalmente teremos que executar uma condição se algo for \textbf{verdadeiro} e outra caso o resultado seja \textbf{falso}. Assim, esse caminho alternativo é representado pela palavra reservada \textbf{else}. 
+
+\begin{lstlisting}
+	var idade = Number(prompt('Digite sua idade'));
+	if (idade <== 18){
+		alert('Maior de idade')	
+	} else {
+		alert('Menor de idade')	
+	}
+\end{lstlisting}
+
+Se tivermos mais que dois caminhos a escolher, múltiplos pares de \textbf{if/else} podem ser ``encadeados''. 
+
+\begin{lstlisting}
+	var idade = Number(prompt('Digite sua idade'));
+	if (idade === 18){
+		alert('Tem 18 anos')	
+	} else if (idade < 18){
+		alert('Menos de 18 anos)	
+	} else {
+		alert('Maior de 18 anos)	
+	}
+\end{lstlisting}
+
+\section{Exercício de fixação}
+
+\begin{enumerate}
+	\item Faça um programa que peça duas notas de um estudante. Em seguida calcule a média do aluno e apresente o resultado, Reprovado ou Aprovado. Lembre-se, a média deve ser igual ou maior a 7,0.
+	\item Faça um programa que leia três números e mostre-os, no console, os mesmos em ordem decrescente. 
+\end{enumerate}
