@@ -1,7 +1,7 @@
 ![alt](https://github.com/luizpicolo/notas-de-aula-ifms/blob/master/imagens/marcaifms.png?raw=true)
 
 # Notas de Aula
-Este repositório mantém as notas de aula das disciplinas ministradas pelo Professor Luiz Picolo no Instituto Federal de Mato Grosso do Sul. Todas as notas de aulas são referentes tanto ao Ensino Médio, quanto ao Ensino Superior. Para que seja feita a distinçào, você deve acessar as notas e verificar e ementa disponível no readme.md
+Este repositório mantém as notas de aula das disciplinas ministradas pelo Professor Luiz Picolo no Instituto Federal de Mato Grosso do Sul. Todas as notas de aulas são referentes tanto ao Ensino Médio, quanto ao Ensino Superior. Para que seja feita a distinção, você deve acessar as notas e verificar a ementa disponível no README.md
 
 ## Compilação
 É necessário que o pacote pdftolatex estejam instalados em sua máquina.
@@ -15,7 +15,7 @@ Com isso, o arquivo de extensão .pdf será compilado com o nome `notas.pdf`.
 
 
 ## Autor (torne-se um autor(a))
-- Prof. Me. Luiz Fernando Picolo - luiz.picolo@ifms.edu.br)
+- Prof. Me. Luiz Fernando Picolo - luiz.picolo@ifms.edu.br
 
 
 ## Contribuições
@@ -34,7 +34,7 @@ Você também pode contribuir fazendo requisições diversas:
 * Destrinchamento de um dado conceito;
 * Sugestões na formatação dos textos e documento em geral;
 * Imagens mais intuitivas, legíveis e didáticas;
-* Exercícios de fixação de conteúdo que não constam nos anexos dos documento;
+* Exercícios de fixação de conteúdo que não constam nos anexos dos documentos;
 * Qualquer coisa que você achar útil.
 
 Para isto, basta abrir uma *issue* no repositório. Da mesma forma, você é encorajado e fechar *issues* já criadas, criando *pull requests* que resolvam as mesmas.
