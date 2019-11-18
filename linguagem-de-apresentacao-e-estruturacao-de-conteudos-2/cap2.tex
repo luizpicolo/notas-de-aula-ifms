@@ -269,3 +269,127 @@ Se tivermos mais que dois caminhos a escolher, múltiplos pares de \textbf{if/el
 	\item Faça um programa que peça duas notas de um estudante. Em seguida calcule a média do aluno e apresente o resultado, Reprovado ou Aprovado. Lembre-se, a média deve ser igual ou maior a 7,0.
 	\item Faça um programa que leia três números e mostre-os, no console, os mesmos em ordem decrescente. 
 \end{enumerate}
+
+\section{laços de repetição}
+
+Frequentemente em nossas aplicações precisamos repetir a execução de um bloco de códigos do programa até que determinada condição seja verdadeira, ou senão até uma quantidade de vezes seja satisfeita. Para que essas repetições sejam possíveis, usamos os laços de repetições.
+
+\subsection{Loops While e Do}
+
+Uma declaração que inicia com a palavra-chave while cria um loop. A palavra while é acompanhada por uma expressão entre parênteses e seguida por uma declaração, similar ao if. O loop continua executando a declaração enquanto a expressão produzir um valor que, após convertido para o tipo Booleano, seja true \cite{haverbeke2014eloquent}.
+
+\begin{lstlisting}
+	var numero = 0;
+	while (numero <= 12) {
+		console.log(numero);
+		numero = numero + 2;
+	}
+\end{lstlisting}
+
+Já o loop do é uma estrutura de controle similar ao while. A única diferença entre eles é que o do sempre executa suas declarações ao menos uma vez e inicia o teste para verificar se deve parar ou não apenas após a primeira execução. Para demonstrar isso, o teste aparece após o corpo do loop:
+
+\begin{lstlisting}
+	do {
+		var name = prompt("Digite seu nome");
+	} while (!name);
+	console.log(name);
+\end{lstlisting}
+
+Esse programa irá forçar você a informar um nome. Ele continuará pedindo até que seja fornecido um valor que não seja uma \textit{string} vazia.
+
+\subsection{Loops For}
+
+O JavaScript, assim como outras linguagens de programação, fornece uma forma um pouco mais curta e compreensiva para que possamos realizar a mesma função do Loop \textbf{While} chamada de loop \textbf{for}. Neste Loop, a execução acontece até o momento em que a segunda alternativa, que neste caso é \textbf{number <= 12} seja verdadeira
+
+\begin{lstlisting}
+	for (var number = 0; number <= 12; number = number + 2){
+		console.log(number);
+	}
+\end{lstlisting}
+
+Contudo, ter uma condição que produza um resultado false não é a única maneira que um loop pode parar. Existe uma declaração especial chamada \textbf{break} que tem o efeito de parar a execução e sair do loop em questão.
+
+\begin{lstlisting}
+	for (var current = 20; ; current++) {
+		if (current % 7 == 0)
+		break;
+	}
+	console.log(current);
+\end{lstlisting}
+
+\section{SwitchCase}
+
+É comum que, com o aumento da complexidade dos algorítimos desenvolvidos, o código fique assim:
+
+\begin{lstlisting}
+	if (variable == "value1") action1();
+	else if (variable == "value2") action2();
+	else if (variable == "value3") action3();
+	else defaultAction();
+\end{lstlisting}
+
+Há um construtor chamado switch que se destina a resolver o envio de valores de uma forma mais direta. Infelizmente, a sintaxe JavaScript usada para isso (que foi herdada na mesma linha de linguagens de programação, C e Java) é um pouco estranha - frequentemente uma cadeia de declarações if continua parecendo melhor. Aqui está um exemplo:
+
+\begin{lstlisting}
+	switch (prompt("What is the weather like?")) {
+	case "rainy":
+		console.log("Remember to bring an umbrella.");
+		break;
+	case "sunny":
+		console.log("Dress lightly.");
+		break;
+	case "cloudy":
+		console.log("Go outside.");
+		break;
+	default:
+		console.log("Unknown weather type!");
+		break;
+	}
+\end{lstlisting}
+
+\section{Exercícios de fixação}
+
+1 - Escreva um programa que faça sete chamadas a console.log() para retornar o seguinte triângulo:
+	
+	\begin{lstlisting}
+	#
+	##
+	###
+	####
+	#####
+	######
+	#######
+	\end{lstlisting}
+	
+2 - Escreva um programa que cria uma string que representa uma grade 8x8, usando novas linhas para separar os caracteres. A cada posição da grade existe um espaço ou um caractere. Esses caracteres formam um tabuleiro de xadrez.
+	
+Passando esta string para o console.log deve mostrar algo como isto:
+	
+	\begin{lstlisting}
+	# # # #
+	 # # # #
+	# # # #
+	 # # # #
+	# # # #
+	 # # # #
+	# # # #
+	 # # # #
+	\end{lstlisting}
+
+3 - Transforme o código abaixo utilizando a sintaxe do \textbf{SwitchCase}.
+
+\begin{lstlisting}
+	var ano = 6;
+
+	if (anos <= 1) {
+		console.log("Iniciante");
+	} else if (anos <= 3) {
+		console.log("Intermediário");
+	} else if (anos <= 6) {
+		console.log("Avancado");
+	} else {
+		console.log("Jedi Master");
+	}
+\end{lstlisting}
+
+

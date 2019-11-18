@@ -1,0 +1,84 @@
+\chapter{Funções}
+
+\begin{flushright}
+  \textit{
+    Todo mestre já foi aprendiz um dia. \\ Mas também engana-se quem pensa que a busca por \\  conhecimento tem um fim. 
+  } \\
+  
+  \textbf{Autor desconhecido}
+\end{flushright}
+
+Nós, até este momento, já observamos valores de funções. O \textbf{alert}, \textbf{prompt}, \textbf{confirm} são funções que podemos chamar em qualquer parte do nosso código, mas não sabemos como ela realiza determinado processo para chegar a determinados resultados. Assim, podemos afirmar portanto que o conceito de encapsular uma parte do programa em um valor tem vários usos. É uma ferramenta usada para estruturar aplicações de larga escala, reduzir repetição de código, associar nomes a subprogramas e isolar esses subprogramas uns dos outros.
+
+\section{Definindo uma Função}
+
+A definição da função (também chamada de declaração de função) consiste no uso da palavra chave \textit{function}, seguida por:
+
+\begin{enumerate}
+	\item Nome da Função.
+	\item Lista de argumentos para a função, entre parênteses e separados por vírgulas.
+	\item Declarações JavaScript que definem a função, entre chaves { }.
+\end{enumerate}
+
+Por exemplo, o código a seguir define uma função simples chamada elevarAoQuadrado:
+
+\begin{lstlisting}
+	function elevarAoQuadrado(numero) { 
+		return numero * numero; 
+	}
+\end{lstlisting}
+
+A função elevarAoQuadrado recebe um argumento chamado numero. A função consiste em uma instrução que indica para retornar o argumento da função (isto é, numero) multiplicado por si mesmo. A declaração \textbf{return} especifica o valor retornado pela função.
+
+\begin{lstlisting}
+	return numero * numero;
+\end{lstlisting}
+
+\section{Chamando funções}
+
+A definição de uma função não a executa. Definir a função é simplesmente nomear a função e especificar o que fazer quando a função é chamada. Chamar a função executa realmente as ações especificadas com os parâmetros indicados. Por exemplo, se você definir a função elevarAoQuadrado, você pode chamá-la do seguinte modo: 
+
+\begin{lstlisting}
+	elevarAoQuadrado(5);
+\end{lstlisting}
+
+Para apresentar os dados podemos utilizar o console.log da seguinte forma:
+
+\begin{lstlisting}
+	console.log(elevarAoQuadrado(5))
+\end{lstlisting}
+
+Lembre-se: funções não devem apresentar valores mas apenas retorná-los. 
+
+\section{Expressão de função}
+
+Embora a declaração de função acima seja sintaticamente uma declaração, funções também podem ser criadas por uma expressão de função. Tal função pode ser anônima; ele não tem que ter um nome. Por exemplo, a função elevarAoQuadrado poderia ter sido definida como:
+
+\begin{lstlisting}
+	var elevarAoQuadrado = function(numero) {return numero * numero}; 
+	var x = elevarAoQuadrado(4) //x recebe o valor 16
+\end{lstlisting}
+
+Ou podemos também utilizar as \textbf{Arrow Functions}. Neste caso, removeremos a palavra reservada \textit{function} e adicionaremos a Arrow ou Fecha/Seta. (Todas as expressões buscam resolver determinados problemas. Contudo, não vamos abardá-los neste texto)
+
+\begin{lstlisting}
+var elevarAoQuadrado = (numero) => {return numero * numero}; 
+var x = elevarAoQuadrado(4) //x recebe o valor 16
+\end{lstlisting}
+
+\section{Exercícios de Fixação}
+
+1. Escreva uma função que recebe dois argumentos e retorna o menor deles. A função deve ser invocada da seguinte forma: 
+
+\begin{lstlisting}
+	minimo(2, 4) // Deverá retornar 2
+\end{lstlisting}
+
+2. Vamos criar uma função para um duelo. Crie uma função que receba o nome de dois personagens e que sera invocada da seguinte forma: 
+
+\begin{lstlisting}
+	dueloRPG("Mago", "Guerreiro") // Poderá retornar da seguinte forma 'Guerreiro ganhou com dano de: 0.12312'
+\end{lstlisting}
+
+Para tanto, use a função \textbf{Math.random()} para gerar um número aleatório que será o dano de seu personagem. 
+
