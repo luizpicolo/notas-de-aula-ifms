@@ -1,0 +1,64 @@
+\setcounter{chapter}{1}
+\chapter{Orientação a Objetos com JavaScript}
+
+\begin{flushright}
+	\textit{
+		Dedique-se aos estudos para que eles o façam \\
+		melhor para a sociedade e para si mesmo.
+	} \\
+	
+	\textbf{Alvaro Granha Loregian}
+\end{flushright}
+
+Esse capítulo tem como objetivo aplicar o conhecimento adquirido anteriormente no Capítulo \ref{cap:cap1} utilizando a linguagem de programação JavaScript. 
+
+JavaScript, segundo a Mozilla\footnote{Para mais detalhes acesse: \url{https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript}}, tem fortes capacidades de programação orientada a objetos, apesar de ocorrerem algumas discussões devido às diferenças da orientação a objetos no JavaScript em comparação com outras linguagens. Assim, no Capítulo \ref{cap:cap1} foi realizada uma introdução à programação orientada a objetos, e neste, será demonstrado os conceitos de programação orientada a objetos no JavaScript.
+
+\section{Classes}
+
+Classes em JavaScript\footnote{Para mais detalhes acesse: \url{https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes}} são introduzidas no ECMAScript\footnote{Para mais detalhes acesse: \url{https://developer.mozilla.org/pt-BR/docs/Web/JavaScript}} 2015 e são simplificações da linguagem para as heranças baseadas nos protótipos. A sintaxe para classes não introduz um novo modelo de herança de orientação a objetos em JavaScript. Classes em JavaScript provêm uma maneira mais simples e clara de criar objetos e lidar com herança.
+
+Para definir uma classe é usando uma declaração de classe. Para declarar uma classe, deve-se usar a palavra reservada \textbf{class} seguida pelo nome da classe desejada.
+
+\begin{lstlisting}
+	class Retangulo {
+	
+	}
+\end{lstlisting}
+
+Outras forma de escrita de uma classe, também chamadas Expressões de Classes (\textit{class expression}), podem ser usadas para fazer sua definição. Contudo, utilizaremos apenas a notação mais nova e comumente encontrada em outras linguagens, ou seja, a notação \textit{class}.
+
+\begin{lstlisting}
+	// sem nome
+	let Retangulo = class {
+		
+	};
+	
+	// nomeada
+	let Retangulo = class Retangulo {
+		
+	};
+\end{lstlisting}
+
+E para que possamos criar uma instância (objeto) da classe, utilizamos o seguinte trecho de código abaixo.
+
+\begin{lstlisting}
+	let retangulo = new Retangulo();
+\end{lstlisting}
+
+\section{Construtor e Atributos}
+
+Como dito no Capítulo \ref{cap:cap1} as características que descrevem um objeto são chamadas na orientação a objeto de atributos. Assim, toda classe deve conter atributos que lhe dão as características necessárias para a criação do objeto. 
+
+Para que possamos criar nossos atributos podemos fazer de duas formas, uma usando funções diretas ou por meio do Construtor. Um contrutor é um tipo especial de ``método'' para criar e iniciar um objeto criado pela classe. Só pode existir um método construtor dentro da classe. Um erro de sintáxe \textbf{SyntaxError} será lançado se a classe possui mais do que uma ocorrência do método construtor. 
+
+Para iniciarmos os atributos com o construtor usamos a palavra reservada \textbf{constructor} seguida dos valores dos atributos desejados.
+
+\begin{lstlisting}
+	class Retangulo {
+	  constructor(altura, largura) {
+	  	this.altura = altura;
+	  	this.largura = largura;
+	  }
+	}
+\end{lstlisting}
