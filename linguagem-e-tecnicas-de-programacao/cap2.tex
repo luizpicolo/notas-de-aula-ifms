@@ -12,11 +12,19 @@
 
 Esse capítulo tem como objetivo aplicar o conhecimento adquirido anteriormente no Capítulo \ref{cap:cap1} utilizando a linguagem de programação JavaScript. 
 
-JavaScript, segundo a Mozilla\footnote{Para mais detalhes acesse: \url{https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript}}, tem fortes capacidades de programação orientada a objetos, apesar de ocorrerem algumas discussões devido às diferenças da orientação a objetos no JavaScript em comparação com outras linguagens. Assim, no Capítulo \ref{cap:cap1} foi realizada uma introdução à programação orientada a objetos, e neste, será demonstrado os conceitos de programação orientada a objetos no JavaScript.
+JavaScript, segundo \citeonline{fernandotrasviña2021}, tem fortes capacidades de programação orientada a objetos, apesar de ocorrerem algumas discussões devido às diferenças da orientação a objetos no JavaScript em comparação com outras linguagens. Assim, no Capítulo \ref{cap:cap1} foi realizada uma introdução à programação orientada a objetos, e neste, será demonstrado os conceitos de programação orientada a objetos no JavaScript.
 
 \section{Classes}
 
 Classes em JavaScript\footnote{Para mais detalhes acesse: \url{https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes}} são introduzidas no ECMAScript\footnote{Para mais detalhes acesse: \url{https://developer.mozilla.org/pt-BR/docs/Web/JavaScript}} 2015 e são simplificações da linguagem para as heranças baseadas nos protótipos. A sintaxe para classes não introduz um novo modelo de herança de orientação a objetos em JavaScript. Classes em JavaScript provêm uma maneira mais simples e clara de criar objetos e lidar com herança.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.35]{imagens/classes-antes-depois.png}
+	\caption{Sintaxes de classes em JavaScript}
+	\legend{Fonte: O Autor }
+	\label{fig:sintaxe-classe-js}
+\end{figure}
 
 Para definir uma classe é usando uma declaração de classe. Para declarar uma classe, deve-se usar a palavra reservada \textbf{class} seguida pelo nome da classe desejada.
 
@@ -48,7 +56,7 @@ E para que possamos criar uma instância (objeto) da classe, utilizamos o seguin
 
 \section{Construtor e Atributos}
 
-Como dito no Capítulo \ref{cap:cap1} as características que descrevem um objeto são chamadas na orientação a objeto de atributos. Assim, toda classe deve conter atributos que lhe dão as características necessárias para a criação do objeto. 
+Como dito no Capítulo \ref{cap:cap1} as características que descrevem um objeto são chamadas na orientação a objeto de atributos. Assim, toda classe pode conter atributos que lhe dão as características necessárias para a criação do objeto. 
 
 Para que possamos criar nossos atributos podemos fazer de duas formas, uma usando funções diretas ou por meio do Construtor. Um contrutor é um tipo especial de ``método'' para criar e iniciar um objeto criado pela classe. Só pode existir um método construtor dentro da classe. Um erro de sintáxe \textbf{SyntaxError} será lançado se a classe possui mais do que uma ocorrência do método construtor. 
 
@@ -57,8 +65,283 @@ Para iniciarmos os atributos com o construtor usamos a palavra reservada \textbf
 \begin{lstlisting}
 	class Retangulo {
 	  constructor(altura, largura) {
-	  	this.altura = altura;
-	  	this.largura = largura;
+	  	this._altura = altura;
+	  	this._largura = largura;
 	  }
 	}
 \end{lstlisting}
+
+\section{Métodos}
+
+% https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes	
+Métodos são ações que o objeto pode realizar e são responsáveis pela troca de mensagem entre os objetos \textbf{emissores} e o \textbf{receptores}. As técnicas de programação orientada a objetos recomendam que a estrutura de um objeto e a implementação de seus métodos devem ser tão privativos como possível. Normalmente, os atributos de um objeto não devem ser visíveis externamente. Da mesma forma, de um método deve ser suficiente conhecer apenas sua especificação, sem necessidade de saber detalhes de como a funcionalidade que ele executa é implementada\footnote{Veja mais em: \url{https://www.devmedia.com.br/orientacao-a-objetos-parte-ii/7161}}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{imagens/troca-mensagens.png}
+	\caption{Troca de mensagens entre objetos.}
+	\legend{Fonte: O Autor }
+	\label{fig:troca-mensagem}
+\end{figure}
+
+Assim, para definir um método, devemos atribuir uma função a uma classe que, depois disso, poderá ser chamado como método do objeto usando o mesmo nome ao qual foi atribuída a função. 
+
+\begin{lstlisting}
+	class Retangulo {
+		constructor(altura, largura) {
+			this._altura = altura;
+			this._largura = largura;
+		}
+	
+		calcularArea() {
+			return this._altura * this._largura;
+		}
+	}
+\end{lstlisting}
+
+Para invocarmos o método, basta instânciar-mos a classe e criar assim um novo objeto.
+
+\begin{lstlisting}
+	const objeto = new Retangulo(10, 10);
+	console.log(objeto.calculaArea());
+\end{lstlisting}
+
+Contudo, existe aqui um erro semântico. Quando queremos saber a área de uma figura geométrica, deveríamos ``perguntar'' a está figura sua área e não solicitar o calculo. Logo, podemos resolver isso, criando um novo método que retorna apenas a área e que utiliza o método \textbf{calcularArea}. 
+
+\begin{lstlisting}
+	class Retangulo {
+		constructor(altura, largura) {
+			this._altura = altura;
+			this._largura = largura;
+		}
+	
+		area(){
+			return this.calcularArea();
+		}
+		
+		calcularArea() {
+			return this._altura * this._largura;
+		}
+	}
+
+	const objeto = new Retangulo(10, 10);
+	console.log(objeto.area());
+\end{lstlisting}
+
+\subsection{Método Get}
+
+Os métodos criados acima funcionam corretamente. Porém, podemos melhorar um pouco mais a semântica do objeto. Para isso usaremos a sintáxe \textbf{Get}.
+
+Às vezes é desejável que se permita acesso a uma propriedade que retorna um valor computado dinamicamente, ou você pode querer refletir o status de uma variável interna sem requerer o uso de chamadas de método explícitas. Em Javascript, isso pode ser feito com o uso de um \textbf{getter}. Não é possível simultaneamente ter um \textbf{getter} associado a uma propriedade e a mesma possuir um valor, embora seja possível usar um \textbf{getter} e um setter em conjunto para criar algo como uma pseudo-propriedade.
+
+\begin{lstlisting}
+	class Retangulo {
+		constructor(altura, largura) {
+			this._altura = altura;
+			this._largura = largura;
+		}
+		
+		get area(){
+			return this.calcularArea();
+		}
+		
+		calcularArea() {
+			return this._altura * this._largura;
+		}
+	}
+	
+	const objeto = new Retangulo(10, 10);
+	console.log(objeto.area);
+\end{lstlisting}
+
+\subsection{Método Set}
+
+Já o \textbf{setter} pode ser usado para executar uma função sempre que se tenta mudar uma propriedade específica. \textbf{Setters} são geralmente usados em conjunto com \textbf{getters}, para criar um tipo de pseudo-propriedade. No entanto é impossível ter-se um \textbf{setter} para uma propriedade que contenha um valor real.
+
+\begin{lstlisting}
+	class Retangulo {
+		
+		set altura(altura){
+			this._altura = altura;
+		}
+		
+		set largura(largura){
+			this._largura = largura;
+		}
+		
+		get area(){
+			return this.calcularArea();
+		}
+		
+		calcularArea() {
+			return this._altura * this._largura;
+		}
+	}
+	
+	const objeto = new Retangulo();
+	objeto.largura = 10;
+	objeto.altura = 10;
+	console.log(objeto.area);
+	
+	objeto.largura = 100;
+	objeto.altura = 100;
+	console.log(objeto.area);
+\end{lstlisting}
+
+O setter se torna muito útil nesse caso pois não precisaremos criar uma novo objeto, apenas alteramos seus atributos (seu estado) para obter novos valores.
+
+\subsection{Método Static}
+
+A palavra chave \textbf{static} define um método estático para a classe. Métodos estáticos não são chamados na instâncias da classe. Em vez disso, eles são chamados na própria classe. Geralmente, são funções utilitárias, como funções para criar ou clonar objetos. Chamadas a métodos estáticos são feitas diretamente na classe e não podem ser feitas em uma instância da classe. Métodos estáticos são comumente utilizados como funções utilitárias\footnote{Veja mais em: \url{https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes/static}}.
+
+\begin{lstlisting}
+	class Retangulo {
+		
+		// Codigo anterior
+		
+		// Metodo adicionado
+		static formaGeometrica(objeto){
+			if (objeto._altura == objeto._largura){
+				return ``A forma geometrica é um Quadrado''
+			} else {
+				return ``A forma geometrica é um Retangulo''
+			}
+		}
+	}
+	
+	const objeto = new Retangulo();
+	objeto.largura = 10;
+	objeto.altura = 10;
+	console.log(Retangulo.formaGeometrica(objeto));
+	console.log(objeto.area);
+\end{lstlisting}
+
+\section{Exercícios de fixação}
+
+\begin{enumerate}
+	\item Uma empresa de notícias \textbf{IFNews} necessita desenvolver um portal de notícias. Após criada toda a parte documental, você, que é desenvolvedor/desenvolvedora na empresa, deverá iniciar a criação dos primeiros códigos. Sua primeira tarefa é a criação da classe Noticia. A classe deverá ser codificada seguindo, primordialmente, as definições abaixo: 
+	
+	\begin{enumerate}
+		\item \textbf{Nome da classe}: Noticia
+		\item \textbf{Atributos}: Título, Data da Publicação, Resumo e Texto (Outros atributos podem ser adicionados)
+		\item \textbf{Métodos:} Mostrar Noticia (Outros métodos podem ser adicionados)
+	\end{enumerate}
+
+	Ao instanciar a classe e invocar o método \textbf{mostrar notícia} o resultado final deverá ser semelhante ao descrito abaixo (Lembre-se que o conteúdo no título, a data e o texto dependerá do \textbf{estado} adicionado a seu objeto): 
+\end{enumerate}
+
+\textbf{Resultado esperado:} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{imagens/saida-exer-01.png}
+	\caption{Resultado esperado}
+	\legend{Fonte: O Autor }
+	\label{fig:resultado}
+\end{figure}
+
+\section{Herança}
+
+A definição de herança, já abordada no Capítulo anterior, nós diz que: a herança é uma maneira de reutilizar código a medida que podemos aproveitar os atributos e métodos de classes já existentes para gerar novas classes mais específicas que aproveitarão os recursos da classe hierarquicamente superior \cite{evandroeduardoseronruiz2008}.
+
+Para realizar a reutilização ja citada, no ES6 foi adicionada a palavra reservada \textbf{\textit{extends}}. Uma classe pode herdar atributos e métodos de outra classe por meio da extensão da classe desejada. 
+
+\begin{lstlisting}
+class Retangulo {
+	
+	// Codigo anterior
+	...
+}
+
+class Quadrado extends Retangulo{
+	constructor(lado) {
+		super(lado, lado);
+	}
+}
+
+let objeto = new Quadrado(100)
+console.log(objeto.area)
+\end{lstlisting}
+
+Observem a palavra \textbf{super}. A palavra reservada \textbf{super} é usada para acessar o objeto pai de um objeto, em outros casos, é usada para acessar a classe pai de uma classe. Neste caso, precisamos observar alguns pontos: 
+
+\begin{itemize}
+	\item No construtor, o \textbf{super} deve ser chamado antes de qualquer acesso à \textbf{this};
+	\item Caso a classe que está realizando \textit{extends} não defina o constructor ele será definido e chamado implicitamente passando todos os parâmetros.
+\end{itemize}
+
+\begin{lstlisting}
+// Errado
+class Quadrado extends Retangulo{
+	constructor(lado) {
+		this._lado = lado;
+		super(lado, lado);
+	}
+}
+
+// Correto
+class Quadrado extends Retangulo{
+	constructor(lado) {
+		super(lado, lado);
+		this._lado = lado;
+	}
+}
+\end{lstlisting}
+
+\section{Super classe e Subclasse}
+
+Atrelado com o conceito de herança possuímos as definições de \textbf{Super classe} e \textbf{Subclasses}.  O uso da palavra \textbf{extends} indica que a classe deveria ser baseado em um objeto padrão. Isso é chamado de Super Classe (\textbf{\textit{superclass}}) e a classe derivada é a Subclasse (\textbf{\textit{subclass}}) \cite{haverbeke2018eloquent}
+
+\begin{lstlisting}
+class Retangulo {
+   ...
+}
+
+class Quadrado extends Retangulo{
+   ...
+}
+\end{lstlisting}
+
+Ocasionalmente, é útil saber se um objeto foi derivado de uma
+classe. Para isso, o JavaScript fornece um operador binário chamado \textbf{instanceof} \cite{haverbeke2018eloquent}. 
+
+\begin{lstlisting}
+console.log(new Quadrado(2) instanceof Retangulo) \\ True
+\end{lstlisting}
+
+Mas e \textbf{Retangulo} é instância de alguma classe? Neste caso sim, todos os objetos em javaScript herdam a classe pai nomeado de \textbf{Object}
+
+\begin{lstlisting}
+	console.log(new Quadrado(2) instanceof Object) \\ True
+	console.log(new Retangulo(2, 2) instanceof Object) \\ True
+\end{lstlisting}
+
+\section{Exercícios de fixação}
+
+\begin{enumerate}
+	\item A empresa de notícias \textbf{IFNews} contratou você para desenvolver o portal de notícias, o qual teve seu início no exercício anterior. Sua primeira tarefa foi a criação da classe Noticia que possuía as seguintes definições: 
+	
+	\begin{enumerate}
+		\item \textbf{Nome da classe}: Noticia
+		\item \textbf{Atributos}: Título, Data da Publicação, Resumo e Texto (Outros atributos podem ser adicionados)
+		\item \textbf{Métodos:} Mostrar Noticia (Outros métodos podem ser adicionados)
+	\end{enumerate}
+\end{enumerate}
+
+Após desenvolver a tarefa, a empresa criou uma nova solicitação. O portal deve possuir \textbf{notícias em destaque}, as quais devem conter uma imagem seguida de um título e um resumo. Como você já criou uma notícia que contem parte do que o cliente necessita, a única tarefa será criar uma \textbf{subclasse} que herdará as características e ações da \textbf{Super Classe} e adicionará a característica desejada.
+
+	\begin{enumerate}
+	\item \textbf{Nome da classe}: NoticiaDestaque
+	\item \textbf{Atributos}: ImagemDestaque (apenas o caminho da imagem)
+	\item \textbf{Métodos:} Mostrar Destaque (Outros métodos podem ser adicionados)
+\end{enumerate}
+
+\textbf{Resultado esperado:} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{imagens/exercicio_heranca.png}
+	\caption{Resultado esperado}
+	\legend{Fonte: O Autor }
+	\label{fig:resultado2}
+\end{figure}
