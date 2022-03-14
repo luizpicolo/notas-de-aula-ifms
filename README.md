@@ -1,4 +1,4 @@
-![alt](https://github.com/luizpicolo/notas-de-aula-ifms/blob/master/imagens/marcaifms.png?raw=true)
+![alt](https://raw.githubusercontent.com/luizpicolo/notas-de-aula-ifms/main/imagens/marcaifms.png)
 
 # Notas de Aula
 Este repositório mantém as notas de aula das disciplinas ministradas pelo Professor Luiz Picolo no Instituto Federal de Mato Grosso do Sul. Todas as notas de aulas são referentes tanto ao Ensino Médio, quanto ao Ensino Superior. Para que seja feita a distinção, você deve acessar as notas e verificar a ementa disponível no README.md
