@@ -1,0 +1,395 @@
+\chapter{Tipos de dados, Variáveis e Constantes}
+
+\begin{flushright}
+  \textit{
+    Aquele que não luta pelo futuro que quer, \\
+    deve aceitar o futuro que vier
+  } \\
+  
+  \textbf{Autor desconhecido}
+\end{flushright}
+
+Definir o que são variáveis ou constantes de forma geral é extremamente 
+simples. Uma variável nada mais é do que um espaço que o sistemas operacional 
+(SO) aloca na memória de seu computador para que seja armazenado algo. Ou seja, 
+quando precisamos armazenar um determinado valor nosso SO cria um espaço e 
+permite ao usuário determinar o que será adicionado. A medida que não será 
+utilizado este espaço com um valor, ele será dissipado, fazendo com que seus 
+disponibilizando-os para serem usados na construção de outros novos valores 
+\cite{haverbeke2014eloquent}.
+
+Mas como é criado este valores? Eu preciso entender de memoria, sistemas 
+operacionais, entre outros para poder alocar este valores? A resposta é não, 
+não é necessário a compreenção de tão baixo nível, basta que se compreenda como é criar variáveis ou constantes em um determinada linguagem, que, neste caso, é JavaScript.
+
+\section{Tipos de dados}
+
+Diferente das linguagens com tipagem forte, ou seja, que levam em consideração o tipo para executar suas operações, o JavaScript possui tipagem fraca, a qual é dado o tipo dos dados que serão alocados quando o código é executado. Outro ponto é a tipagem dinâmica. Logo, não é necessário tipar uma variável quando inicia-se o programa como é feito em Java, C, C++, entre outras linguagens, mas esta responsabilidade é repassada ao compilador, que, caso do JavaScript em questão, esse processo é dado o nome Inferência de Tipo.
+
+A inferência de tipos é a capacidade do compilador entender/’adivinhar’ qual é o tipo de dados de determinada variável sem ela ter sido declarada no código escrito. 
+
+Segundo a \citeonline{mdnmozilla2019}, JavaScript reconhece os seguintes tipos de valores:
+
+\begin{itemize}
+  \item Números (en), como 42 ou 3,14159
+  \item Valores lógicos (Booleanos) (en), true ou false
+  \item Strings (en), tais como "Howdy!"
+  \item null, um palavra chave especial denotando um valor nulo; null também é um valor primitivo. Como JavaScript é sensível a maiúsculas, null não é a mesma coisa que Null, NULL, ou qualquer outra variante
+  \item undefined (en), uma propriedade de alto nível a qual possui o valor 
+  indefinido; undefined também é um valor primitivo.  
+\end{itemize}
+
+Este conjunto de tipos de valores, relativamente pequeno, permite realizar 
+funções úteis nas aplicações. Não há distinção explícita entre números inteiros e reais, para JavaScript, todos os números são tratados como \textit{Number}. 
+
+\section{Variáveis}
+
+O JavaScript é uma linguagem de tipagem dinâmica. Isto significa que não é 
+necessário especificar o tipo de dado de uma variável quando ela for declarada, e tipos de dados são automaticamento convertidos conforme necessário durante a execução do script. Então, por exemplo, pode-se definir uma variável como:
+
+\begin{lstlisting}
+  var idade = 30
+  var instituicao = "IFMS" 
+\end{lstlisting}
+
+Para que possamos saber o tipo que foi atribuido para cada variável, podemos 
+utilizar a função \textbf{typeof} da seguinte forma: 
+
+\begin{lstlisting}
+  var idade = 30
+  console.log(typeof idade) // Retornará number
+\end{lstlisting}
+
+Outra forma de declarar variáveis é utilizando a palavra reservada \textbf{let}.
+
+\begin{lstlisting}
+  let idade = 30
+  let instituicao = "IFMS" 
+\end{lstlisting} 
+
+Mas qual a diferença entre \textbf{var} e \textbf{let}? Neste momento não 
+possuimos o conhecimento necessário para diferenciar as duas palavras 
+reservadas. Contudo, veremos nos próximos capítulos como as duas se diferenciam e quando utilizar uma ou outra.
+
+\subsection{Hoinsting}
+
+Segundo a \citeonline{mdnmozilla2019}, em JavaScript, funções (a qual será 
+vista em um outro capítulo) e variáveis são hoisted (ou "levados ao topo"). 
+Hoisting é um comportamento do JavaScript de mover declarações para o topo de um escopo (o escopo global ou da função em que se encontra). Isso significa que nós somos capazes de usar uma função ou variável antes mesmo de tê-las declaradas, ou em outras palavras: uma função ou variável podem ser declaradas depois de já terem sido utilizadas.
+
+\begin{lstlisting}
+  foo = 2
+  var foo;
+
+  // é implicitamente entendido como:
+  var foo;
+  foo = 2;
+\end{lstlisting}
+
+Assim, as variáveis quando são declaradas sem um valor, recebem o valor \textbf
+{undefined}, ou seja, sem tipo.
+
+\section{Constantes}
+
+Podemos criar elementos "somente leitura", nomeados constantes com a palavra 
+chave \textbf{const}. A sintaxe de um identificador constante é a mesma para um 
+identificador de variáveis: deve começar com uma letra ou sublinhado e pode 
+conter caracteres alfabéticos, numéricos ou sublinhado. Porém, uma constante 
+não pode ter seu valor mudado por meio de uma atribuição ou ser declarada 
+novamente enquanto o \textit{script} estiver rodando.
+
+\begin{lstlisting}
+  const idade = 30
+  console.log(typeof idade) // Retornará number
+\end{lstlisting}
+
+\section{Tipo básico de dados}
+
+Essa sessão introduz os elementos que representam os tipos de valores e os operadores que podem atuar sobre eles presentes na linguagem que estamos estudanto.
+
+\subsection{Números}
+Em JavaScript todos números são tratados como \textit{Number}. Ao criar uma variável contendo um número inteiro ou decimal qualquer, esta variável em algumas linguagem seriam tratadas como Integer ou Float por exemplo. Contudo,em JavaScript, esta recebe o tipo \textit{Number} independente do seu valor.
+
+\begin{lstlisting}
+  var idade = 30
+  console.log(typeof idade) // Retornará number
+
+  var peso = 65.5
+  console.log(typeof peso) // Retornará number
+\end{lstlisting}
+
+\subsubsection{Números Especiais}
+
+Existem três valores especiais no JavaScript que são considerados números, mas não se comportam como números normais.
+
+Os dois primeiros são Infinity e -Infinity, que são usados para representar os infinitos positivo e negativo. O cálculo Infinity - 1 continua sendo Infinity, assim como qualquer outra variação dessa conta. Entretanto, não confie muito em cálculos baseados no valor infinito, pois esse valor não é matematicamente sólido e rapidamente nos levará ao próximo número especial: NaN \cite{haverbeke2014eloquent}.
+
+NaN é a abreviação de “not a number” (não é um número), mesmo sabendo que ele é um valor do tipo número. Você receberá esse valor como resultado quando, por exemplo, tentar calcular 0 / 0 (zero dividido por zero), Infinity - Infinity ou, então, realizar quaisquer outras operações numéricas que não resultem em um número preciso e significativo \cite{haverbeke2014eloquent}.
+
+\subsection{Strings}
+
+O próximo tipo básico de dado é a String. Strings são usadas para representar texto, e são escritas delimitando o seu conteúdo entre aspas. Ambas as aspas simples e duplas podem ser usadas para representar Strings, contanto que as aspas abertas sejam iguais no início e no fim.
+
+\begin{lstlisting}
+  var nome = "Genoveva"
+  console.log(typeof nome) // Retornará String
+\end{lstlisting}
+
+Existem outras maneiras de manipular as Strings, as quais serão discutidas nos próximos capitulos
+
+\subsection{Valores Booleanos}
+
+Você frequentemente precisará de um valor para distinguir entre duas possibilidades, como por exemplo “sim” e “não”, ou “ligado” e “desligado”. Para isso, o JavaScript possui o tipo Booleano, que tem apenas dois valores: verdadeiro e falso (que são escritos como true e false respectivamente).
+
+\begin{lstlisting}
+  console.log(3 > 2) // Retornará true
+  console.log(3 < 2) // Retornará false
+\end{lstlisting}
+
+\subsection{Valores Indefinidos}
+
+Existem dois valores especiais, null e undefined, que são usados para indicar a ausência de um valor com significado. Eles são valores por si sós, mas não carregam nenhum tipo de informação. A diferença de significado entre undefined e null é um acidente que foi criado no design do JavaScript, e não faz muita diferença na maioria das vezes. Podemos comprovar isso comparando ambos
+
+\begin{lstlisting}
+  console.log(null == undefined); // Retornará True
+\end{lstlisting}
+
+\section{Aritmética}
+
+Para que possamos realizar os cálculos básicos em JavaScript, podemos usar os operadores que já estamos acostumados
+
+\begin{lstlisting}
+  2 + 2 // Soma
+  5 - 4 // Subtrai
+  2 * 3 // Multiplica
+  4 / 2 // Divide
+  144 % 12 // Retorna o Resto da divisão
+\end{lstlisting}
+
+Mas o que acontece quando adicionamos os operados acima a Strings? 
+
+\begin{lstlisting}
+  "Java" + "Script" // JavaScript 
+  "Java" - "Script" // NaN
+  "Java" * "Script" // NaN
+  "Java" / "Script" // NaN
+  "Java" % "Script" // NaN
+\end{lstlisting}
+
+Ou seja, com o valor Aritmético + as Strings são concatenadas.
+
+\section{Exercícios de fixação}
+
+\begin{enumerate}
+	\item Crie três variáveis contendo três notas. Depois, calcule a média das três notas e mostre-a na tela por meio de um \textbf{Alert}.  
+	\item Crie cinco variáveis contendo cinco números inteiros. Logo após imprima o quadrado de cada número.
+\end{enumerate}
+
+\section{Concatenação e interpolação de Strings}
+
+Concatenar uma String nada mais é do que executar a união entre duas partes. Como visto, podemos concatenar duas string utilizando o operador +. da seguinte forma:
+
+\begin{lstlisting}
+var string1 = "Java";
+var string2 = "Script";
+
+console.log(string1 + string2)
+\end{lstlisting}
+
+Mas, existe uma nova fora para que possamos unir strings, que usa a ideia de interpolação.
+
+\begin{lstlisting}
+	var string1 = "Java";
+	var string2 = "Script";
+	
+	\\ Usaremos o simbolo da crase
+	console.log(`${string1}${String2}`)
+\end{lstlisting}
+
+\section{prompt e confirm}
+
+O ambiente fornecido pelos navegadores contém algumas outras funções para mostrar janelas. Você pode perguntar a um usuário uma questão Ok/Cancel usando confirm. Isto retorna um valor booleano: true se o usuário clica em OK e false se o usuário clica em Cancel \cite{haverbeke2014eloquent}.
+
+\begin{lstlisting}
+	confirm("Deseja realmente deletar este dado?")
+\end{lstlisting}
+
+Já o comando \textbf{prompt} pode ser usado para criar uma questão ``aberta''. O primeiro argumento é a questão; o segundo é o texto que o usuário inicia. Uma linha do texto pode ser escrita dentro da janela de diálogo, e a função vai retornar isso como uma string.
+
+\begin{lstlisting}
+prompt("Digite seu nome")
+\end{lstlisting}
+
+\section{Exercicios de fixação}
+
+\begin{enumerate}
+	\item Faça um programa que leia duas string e exiba uma mensagem com o resultado da concatenação das mesmas. 
+	
+	\item Faça um programa que leia dois números. Logo após, some os mesmos e exiba uma mensagem utilizando o console.log com o resultado. Pesquisa a forma como podemos converter String em Number em JavaScript 
+\end{enumerate}
+
+\section{Condicional}
+
+Quando seu programa contém mais que uma declaração, as declarações são executadas, previsivelmente, de cima para baixo. Assim, caso tenhamos duas condições, precisamos de algum mecanismo que possa nos auxiliar a executar uma condição ou outra. Assim, tanto no JavaScript quanto em outras linguagens de programação, podemos utilizar a palavra-chave reservada \textbf{if} para expressar uma condição. No caso mais simples, nós queremos que algum código seja executado se, e somente se, uma certa condição existir. 
+
+\begin{lstlisting}
+	var idade = Number(prompt('Digite sua idade'));
+	if (idade >== 18){
+		alert("Maior de idade")	
+	}
+\end{lstlisting}
+
+Contudo, normalmente teremos que executar uma condição se algo for \textbf{verdadeiro} e outra caso o resultado seja \textbf{falso}. Assim, esse caminho alternativo é representado pela palavra reservada \textbf{else}. 
+
+\begin{lstlisting}
+	var idade = Number(prompt('Digite sua idade'));
+	if (idade <== 18){
+		alert('Maior de idade')	
+	} else {
+		alert('Menor de idade')	
+	}
+\end{lstlisting}
+
+Se tivermos mais que dois caminhos a escolher, múltiplos pares de \textbf{if/else} podem ser ``encadeados''. 
+
+\begin{lstlisting}
+	var idade = Number(prompt('Digite sua idade'));
+	if (idade === 18){
+		alert('Tem 18 anos')	
+	} else if (idade < 18){
+		alert('Menos de 18 anos)	
+	} else {
+		alert('Maior de 18 anos)	
+	}
+\end{lstlisting}
+
+\section{Exercício de fixação}
+
+\begin{enumerate}
+	\item Faça um programa que peça duas notas de um estudante. Em seguida calcule a média do aluno e apresente o resultado, Reprovado ou Aprovado. Lembre-se, a média deve ser igual ou maior a 7,0.
+	\item Faça um programa que leia três números e mostre-os, no console, os mesmos em ordem decrescente. 
+\end{enumerate}
+
+\section{laços de repetição}
+
+Frequentemente em nossas aplicações precisamos repetir a execução de um bloco de códigos do programa até que determinada condição seja verdadeira, ou senão até uma quantidade de vezes seja satisfeita. Para que essas repetições sejam possíveis, usamos os laços de repetições.
+
+\subsection{Loops While e Do}
+
+Uma declaração que inicia com a palavra-chave while cria um loop. A palavra while é acompanhada por uma expressão entre parênteses e seguida por uma declaração, similar ao if. O loop continua executando a declaração enquanto a expressão produzir um valor que, após convertido para o tipo Booleano, seja true \cite{haverbeke2014eloquent}.
+
+\begin{lstlisting}
+	var numero = 0;
+	while (numero <= 12) {
+		console.log(numero);
+		numero = numero + 2;
+	}
+\end{lstlisting}
+
+Já o loop do é uma estrutura de controle similar ao while. A única diferença entre eles é que o do sempre executa suas declarações ao menos uma vez e inicia o teste para verificar se deve parar ou não apenas após a primeira execução. Para demonstrar isso, o teste aparece após o corpo do loop:
+
+\begin{lstlisting}
+	do {
+		var name = prompt("Digite seu nome");
+	} while (!name);
+	console.log(name);
+\end{lstlisting}
+
+Esse programa irá forçar você a informar um nome. Ele continuará pedindo até que seja fornecido um valor que não seja uma \textit{string} vazia.
+
+\subsection{Loops For}
+
+O JavaScript, assim como outras linguagens de programação, fornece uma forma um pouco mais curta e compreensiva para que possamos realizar a mesma função do Loop \textbf{While} chamada de loop \textbf{for}. Neste Loop, a execução acontece até o momento em que a segunda alternativa, que neste caso é \textbf{number <= 12} seja verdadeira
+
+\begin{lstlisting}
+	for (var number = 0; number <= 12; number = number + 2){
+		console.log(number);
+	}
+\end{lstlisting}
+
+Contudo, ter uma condição que produza um resultado false não é a única maneira que um loop pode parar. Existe uma declaração especial chamada \textbf{break} que tem o efeito de parar a execução e sair do loop em questão.
+
+\begin{lstlisting}
+	for (var current = 20; ; current++) {
+		if (current % 7 == 0)
+		break;
+	}
+	console.log(current);
+\end{lstlisting}
+
+\section{SwitchCase}
+
+É comum que, com o aumento da complexidade dos algorítimos desenvolvidos, o código fique assim:
+
+\begin{lstlisting}
+	if (variable == "value1") action1();
+	else if (variable == "value2") action2();
+	else if (variable == "value3") action3();
+	else defaultAction();
+\end{lstlisting}
+
+Há um construtor chamado switch que se destina a resolver o envio de valores de uma forma mais direta. Infelizmente, a sintaxe JavaScript usada para isso (que foi herdada na mesma linha de linguagens de programação, C e Java) é um pouco estranha - frequentemente uma cadeia de declarações if continua parecendo melhor. Aqui está um exemplo:
+
+\begin{lstlisting}
+	switch (prompt("What is the weather like?")) {
+	case "rainy":
+		console.log("Remember to bring an umbrella.");
+		break;
+	case "sunny":
+		console.log("Dress lightly.");
+		break;
+	case "cloudy":
+		console.log("Go outside.");
+		break;
+	default:
+		console.log("Unknown weather type!");
+		break;
+	}
+\end{lstlisting}
+
+\section{Exercícios de fixação}
+
+1 - Escreva um programa que faça sete chamadas a console.log() para retornar o seguinte triângulo:
+	
+	\begin{lstlisting}
+	#
+	##
+	###
+	####
+	#####
+	######
+	#######
+	\end{lstlisting}
+	
+2 - Escreva um programa que cria uma string que representa uma grade 8x8, usando novas linhas para separar os caracteres. A cada posição da grade existe um espaço ou um caractere. Esses caracteres formam um tabuleiro de xadrez.
+	
+Passando esta string para o console.log deve mostrar algo como isto:
+	
+	\begin{lstlisting}
+	# # # #
+	 # # # #
+	# # # #
+	 # # # #
+	# # # #
+	 # # # #
+	# # # #
+	 # # # #
+	\end{lstlisting}
+
+3 - Transforme o código abaixo utilizando a sintaxe do \textbf{SwitchCase}.
+
+\begin{lstlisting}
+	var ano = 6;
+
+	if (anos <= 1) {
+		console.log("Iniciante");
+	} else if (anos <= 3) {
+		console.log("Intermediário");
+	} else if (anos <= 6) {
+		console.log("Avancado");
+	} else {
+		console.log("Jedi Master");
+	}
+\end{lstlisting}
+
+
