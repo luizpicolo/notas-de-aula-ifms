@@ -1,121 +1,39 @@
-\chapter{Definição sobre JavaScript Object Notation (JSON)}\label{cap:cap3}
+\chapter{Mapeamento objeto-relacional (ORM)}\label{cap:cap3}
 
 \begin{flushright}
 	\textit{
-		Um ladrão rouba um tesouro, mas não furta a inteligência. \\
-		Uma crise destrói um herança, mas não uma profissão. \\ Não importa se você não tem dinheiro, você é uma pessoa rica, \\ pois possui o maior de todos os capitais: a sua inteligência. \\ Invista nela. \textbf{Estude}!.
+		É melhor você tentar algo, vê-lo não funcionar \\ e aprender com isso, do que não fazer nada.
 	} \\
 	
-	\textbf{Augusto Cury}
+	\textbf{Mark Zuckerberg}
 \end{flushright}
 
-JSON (JavaScript Object Notation) é um formato de intercâmbio de dados leve. É fácil para que seres humanos possam ler e escrever. É fácil para que as máquinas possam analisar e gerar. É baseado em um subconjunto do \textbf{Padrão de Linguagem de Programação JavaScript ECMA-262 3ª Edição} - Dezembro de 1999. JSON é um formato de texto completamente independente da linguagem, mas usa convenções que são familiares aos programadores da família C de linguagens, incluindo C, C ++, Java, JavaScript, Perl, Python e muitos outros. Essas propriedades tornam o JSON uma linguagem de intercâmbio de dados ideal\footnote{Para mais detalhes acesse: https://www.json.org/json-pt.html}.
+Criar um banco de dados, ou mais formalmente o Sistema Gerenciador de Banco de Dados (SGBD), é uma tarefa complexa presente em todos os projetos. Escolher qual será utilizar em meio a tantos como: my\textbf{sql, sqlserver, oracle, sqlite , postgre, mongodb e etc}, ou, qual se adapta melhor ao projeto é uma decisão que deve ser tomada com cautela.
 
-Json também é um formato baseado em texto padrão para representar dados estruturados com base na sintaxe do objeto JavaScript. É comumente usado para transmitir dados em aplicativos da Web (por exemplo, enviar alguns dados do servidor para o cliente, para que possam ser exibidos em uma página da Web ou vice-versa). Você se deparará com isso com bastante frequência, portanto, neste artigo, oferecemos tudo o que você precisa para trabalhar com o JSON usando JavaScript, incluindo a análise do JSON para que você possa acessar os dados dentro dele e criar o JSON\footnote{Para mais detalhes acesse: \url{https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/JSON}}.
+Outro fato é a forma com que os dados são tratados em cada um. Por exemplo, para um campo \textbf{id} que deve ser auto-incrementado, no Postgres usando o seguinte código SQL:
 
-\section{Estrutura JSON}
+\begin{minted}[frame=single,framesep=10pt,breaklines,linenos,tabsize=2,autogobble]{sql}
+	CREATE TABLE Pessoas (
+		id SERIAL NOT NULL,
+		nome varchar
+	);
+\end{minted}
 
-Um JSON é uma string cujo formato se parece muito com o formato literal do objeto JavaScript. Você pode incluir os mesmos tipos de dados básicos dentro do JSON, como em um objeto JavaScript padrão — strings, números, matrizes, booleanos e outros literais de objeto. Isso permite que você construa uma hierarquia de dados. 
+Já no Mysql, o mesmo código seria escrito da seguinte forma:
 
-\begin{lstlisting}
-let Retangulo = {
-	"largura": 100,
-	"altura": 100
-}
+\begin{minted}[frame=single,framesep=10pt,breaklines,linenos,tabsize=2,autogobble]{javascript}
+	CREATE TABLE Pessoas (
+		id int NOT NULL AUTO_INCREMENT,
+		nome varchar
+	);
+\end{minted}
 
-let Retangulos = [
-	{"largura": 100, "altura": 100},
-	{"largura": 200, "altura": 200},
-]
-\end{lstlisting}
+Logo, caso houvesse uma mudança, nosso código teria que ser alterado para satisfazer a nova base de dados com todas as suas diferenças.
 
-Assim, para realizar o acesso aos dados de um objeto Json, usamos a mesma notação \textbf{dot} / \textbf{bracket} usada em objetos literais.
+Assim, pensando nas possíveis mudanças que o projeto pode ter durante sua vida útil, foram desenvolvidas algumas técnicas para facilitar a vida dos desenvolvedores. Uma que iremos comentar é o Object Relational Mapping (ORM) ou Mapeamento Objeto Relacional. Para diminuir a complexidade, já que o ORM torna o banco de dados mais próximo da arquitetura de classe, removendo os comando SQL de vista, para que possamos focar em ``Qual é o fluxo que minha aplicação deve seguir'' e deixando de lado ``Qual é a query que eu deveria usar aqui?''. Então, nesse aspecto, iremos abordar um pouco sobre o que são ORM, suas práticas e exemplos usando JavaScript.
 
-\begin{lstlisting}
-let Retangulo = {
-	"largura": 100,
-	"altura": 100
-}
+\section{ORM: o que é e como funciona? }
 
-let Retangulos = [
-	{"largura": 100, "altura": 100},
-	{"largura": 200, "altura": 200},
-]
+Como já citei anteriormente um ORM é um Mapeamento Objeto Relacional, sua base consiste em manter o uso de orientação a objetos e um pouco do conceito de non-query. Pois serão raros os momentos onde teremos que escrever uma linha de código SQL para esse tipo de ferramenta \cite{Aylon2020Muramatsu}.
 
-console.log(Retangulo.largura)
-console.log(Retangulo['largura'])
-
-console.log(Retangulos[0].largura)
-console.log(Retangulo[0]['largura'])
-\end{lstlisting}
-
-Contudo, o Json recebido venha em formato de String, ele deverá ser convertido para um objeto JavaScript. Assim, usando a função \textbf{JSON.parse()} podemos converter a string em um objeto, da seguinte forma:
-
-\begin{lstlisting}
-let retangulo = Json.parse('{"largura": 100, "altura": 100}')
-console.log(Retangulo.largura)
-\end{lstlisting}
-
-\section{Exercícios de Fixação}
-
-\begin{enumerate}
-	\item No exercício 2.4 criamos uma classe \textbf{Noticia} que continha alguns atributos (titulo, dataDaPublicacao, resumo e texto) e uma outra classe \textbf{NoticiaDestaque} que continha, além dos atributos citados, um atributo imagem. Assim, baseando-se nos atributos listados, crie um arquivo \textbf{json} com nome \textbf{noticias.json} e atribua a ele uma lista de notícias no formato estudado. O arquivo deve conter no mínimo 5 notícias.
-\end{enumerate}
-
-\section{Obtendo JSON de um servidor web (Requisição Ajax)}
-
-Para obter o JSON, vamos usar uma API chamada \textbf{XMLHttpRequest} (geralmente chamada de XHR). Esse é um objeto JavaScript muito útil que nos permite fazer solicitações de rede para recuperar recursos de um servidor via JavaScript (por exemplo, imagens, texto, JSON e até trechos de código HTML), o que significa que podemos atualizar pequenas seções de conteúdo sem ter que recarregar todo página. Isso levou a páginas da Web mais responsivas e parece empolgante, mas está além do escopo deste artigo ensinar isso com muito mais detalhes\footnote{Para mais detalhes acesse: \url{https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/JSON}}.
-
-Para começar, vamos armazenar a URL do JSON que queremos recuperar em uma variável. Adicione o seguinte na parte inferior do seu código JavaScript:
-
-\begin{lstlisting}
-	let requestURL = 'https://raw.githubusercontent.com/luizpicolo/json-for-testing
-/main/dragonball.json';
-\end{lstlisting}
-
-Para criar uma solicitação, precisamos criar uma nova instância de objeto de solicitação a partir do construtor XMLHttpRequest usando a palavra-chave new. Adicione o seguinte abaixo sua última linha:
-
-\begin{lstlisting}
-	let request = new XMLHttpRequest();
-\end{lstlisting}
-
-Agora precisamos abrir uma nova solicitação usando o método open() . Adicione a seguinte linha:
-
-\begin{lstlisting}
-	request.open('GET', requestURL);
-\end{lstlisting}
-
-Isso leva pelo menos dois parâmetros — existem outros parâmetros opcionais disponíveis. Nós só precisamos dos dois obrigatórios para este exemplo simples:
-
-\begin{itemize}
-	\item O método HTTP a ser usado ao fazer a solicitação de rede. Neste caso, GET é bom, pois estamos apenas recuperando alguns dados simples.
-	\item O URL para fazer a solicitação — esta é a URL do arquivo JSON que armazenamos anteriormente.
-\end{itemize}
-
-Em seguida, adicione as duas linhas a seguir — aqui estamos definindo o  responseType como JSON, para que o XHR saiba que o servidor retornará o JSON e que isso deve ser convertido nos bastidores em um objeto JavaScript. Em seguida, enviamos a solicitação com o método send():
-
-\begin{lstlisting}
-	request.responseType = 'json';
-	request.send();
-\end{lstlisting}
-
-A última parte desta seção envolve aguardar a resposta retornar do servidor e, em seguida, lidar com ela. Adicione o seguinte código abaixo do seu código anterior:
-
-\begin{lstlisting}
-	request.onload = function() {
-		let personagens = request.response;
-		
-		const elemento = document.getElementById('list');
-		let p1 = personagens.characters[0].name;
-		elemento.insertAdjacentHTML('afterbegin', p1);
-	}
-\end{lstlisting}
-
-\section{Exercícios de Fixação}
-
-\begin{itemize}
-	\item A partir do arquivo \textbf{noticias.json} criado no exercício anterior, e utilizando também as classes \textbf{Noticia} e \textbf{NoticiaDestaque} implementadas, leia e apresente no navegador as notícias contidas no arquivo \textbf{noticias.json}. Para tanto, você deve utilizar implementar a leitura do arquivo e, a partir dos dados, criar objetos e apresentar os mesmos no navegador. Abaixo segue o modelo base para o desenvolvimento do trabalho
-	
-	
-	Modelo: \url{https://replit.com/@luizpicolo/modeloatividade}
-\end{itemize}
+Outro fato muito importante e curioso sobre os ORM é que eles operam como um agente de banco de dados, sendo possível através de pouquíssimas mudanças, utilizar o mesmo código para mais de um banco de dados. Não importa se ele está em Mysql, SqlServer ou até mesmo Oracle. Ele consegue agir da mesma forma em alguns bancos de dados, você só precisa mudar o driver de conexão e está pronto para uso. Neste conceito é importante lembrar que cada uma de nossas tabelas são vistas como uma instância de uma classe, tendo suas características declaradas diretamente na sua classe ``esquema''. Quando trabalhamos com esse tipo de esquema sempre teremos um arquivo de configuração, responsável por fornecer os dados para que o componente de ORM possa se comunicar com o banco e aplicação. Uma outra questão que pode causar dúvidas é como gerar o banco de dados através dessas classes que comentamos anteriormente. Bom veremos isso na prática mais a abaixo \cite{Aylon2020Muramatsu}.
