@@ -1,4 +1,4 @@
-\chapter{Introdução}\label{cap:cap1}
+\chapter{Banco de dados}\label{cap:cap1}
 
 \begin{flushright}
   \textit{
@@ -9,11 +9,11 @@
   \textbf{Marabel Morgan}
 \end{flushright}
 
-O armazenamento de dados é uma importante parte de qualquer aplicativo de computador. Os dados coletados precisam ser armazenados para análise posterior, ou precisam ser recuperados para gerar as saídas desejadas. Existem muitas maneiras de armazenar dados, sendo que, o armazenamento de arquivos (incluindo opções de texto e/ou binárias), bancos de dados relacionais, sistemas NoSQL, entre outros.
+O armazenamento de dados é uma faceta crucial em qualquer aplicação de computador. Ele permite a captura e preservação de informações para análise futura ou para alimentar a geração de resultados esperados. Há uma ampla variedade de opções de armazenamento de dados, incluindo arquivos (texto e/ou binários), bancos de dados relacionais, sistemas NoSQL e outros tipos de soluções.
 
-Contudo, da mesma havendo diversas forma para o armazenamento de dados, o objetivo aqui é demostrar o uso de um banco de dados relacional junto ao NodeJS. Para isso, será usada a linguagem padrão para consulta, a SQL (Structured Query Language). 
+Contudo, apesar da existência de diversas formas de armazenar dados, o objetivo deste texto é demonstrar o uso de um banco de dados relacional juntamente com o NodeJS. Para tal, será utilizada a linguagem padrão de consulta, a SQL (Structured Query Language).
 
-A linguagem de consulta SQL é um padrão compartilhado em muitos sistemas de gerenciamento de banco de dados relacional (também conhecido como SGDBs). O SQL implementado às vezes varia do padrão oficial. Essas variações não importam muito se você permanecer na mesma plataforma de banco de dados. No entanto, no momento em que você começa a alternar entre diferentes fornecedores de banco de dados ou até mesmo versões diferentes no mesmo fornecedor, as diferenças podem se tornar importantes. Alternar entre sistemas relacionais e não relacionais traz ainda mais trabalho. Assim, é importante analisar o projeto antes de decidir qual banco de dados será utilizado. 
+A linguagem de consulta SQL é um padrão amplamente utilizado em muitos sistemas de gerenciamento de banco de dados relacional (também conhecidos como SGDBs). No entanto, a implementação do SQL pode variar em relação ao padrão oficial. Essas variações normalmente não são um problema quando você trabalha apenas com uma plataforma específica de banco de dados. No entanto, quando você precisa mudar entre diferentes provedores de banco de dados ou mesmo entre versões diferentes do mesmo provedor, essas diferenças podem se tornar importantes. A mudança para sistemas não relacionais aumenta ainda mais a complexidade do problema. Portanto, é importante considerar cuidadosamente o projeto antes de decidir qual banco de dados utilizar. 
 
 Já o banco escolhido, inicialmente, será o Postgresql. Esse SGDB, segundo seus desenvolvedores, é poderoso sistema de banco de dados objeto-relacional de código aberto com mais de 30 anos de desenvolvimento ativo que lhe rendeu uma forte reputação de confiabilidade, robustez de recursos e desempenho\footnote{Para mais detalhes, acesse: \url{https://www.postgresql.org}}. 
 

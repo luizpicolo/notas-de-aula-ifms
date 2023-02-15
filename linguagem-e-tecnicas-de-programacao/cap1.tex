@@ -10,35 +10,35 @@
 \end{flushright}
 
 
-Para haver um entendimento melhor sobre alguns conceitos que serão abordados no decorrer desta disciplina, devemos, agora, compreender alguns pontos que nos orientarão para o entendimento sobre o que são \textbf{Classes, Métodos, Herança, Objetos}, entre outros. Tais conhecimentos fazem referência ao \textbf{paradigma da orientação a objetos}, ou, \textbf{POO}. Portanto, esse capítulo introdutório, procura introduzir os conceitos sobre o paradigma da orientação a objeto.
+Antes de prosseguir com a disciplina, é importante que tenhamos uma compreensão clara e detalhada dos conceitos relacionados à \textbf{Orientação a Objetos (POO)}. Esses conceitos incluem \textbf{Classes, Métodos, Herança, Objetos} e outros conceitos interligados. A compreensão desses conceitos é fundamental para podermos aproveitar ao máximo as vantagens do paradigma da Orientação a Objetos e utilizá-lo de maneira efetiva na solução de problemas complexos. É através da compreensão desses conceitos que poderemos desenvolver soluções mais organizadas, claras e eficientes. Por isso, este capítulo introdutório visa apresentar esses conceitos de concisamente, proporcionando uma base sólida para o desenvolvimento de habilidades e conhecimentos mais avançados no decorrer da disciplina. Então, estejam atentos e preparem-se para mergulhar no mundo da Orientação a Objetos.
 
 \section{Orientação a objeto}
 
-O Paradigma da Orientada a Objetos (também conhecida pela sua sigla POO) pretende representar o mais fielmente possível as
-situações reais nos sistemas computacionais. Nós entendemos o mundo
-todo composto por vários objetos que interagem uns com os outros. Da mesma maneira, a Orientação a Objetos consiste em considerar os sistemas computacionais não como uma coleção estruturada de processos, mas sim como uma coleção de objetos que interagem entre si \cite{farinelli2007conceitos}.
+O Paradigma da Orientada a Objetos (também conhecida pela sua sigla POO) pretende representar o mais fielmente possível as situações reais nos sistemas computacionais. Nós entendemos o mundo todo composto por vários objetos que interagem uns com os outros. Da mesma maneira, a Orientação a Objetos consiste em considerar os sistemas computacionais não como uma coleção estruturada de processos, mas sim como uma coleção de objetos que interagem entre si \cite{farinelli2007conceitos}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{imagens/figura-01.png}
 	\caption{Um sistema constituído de objetos que interagem entre si.}
+	\includegraphics[scale=0.6]{imagens/figura-01.png}
 	\legend{Fonte: \cite{sommerville2003engenharia}}
 	\label{fig:figura-01}
 \end{figure}
 
-Segundo Peter Van Roy, um sistema formal que define como a programação é realizada. Cada paradigma possui seu próprio conjunto de técnicas e formas de estruturar o pensamento na composição de software \cite{vanroy2012}.
-
-O POO é um dos 4 principais paradigmas, os outras são o procedimental, funcional e lógica). Já a programação orientada a objetos se ocupa de realizar um projeto de software utilizando uma linguagem de programação orientada a objetos, por exemplo, a linguagem Java, que aceita a implementação direta de objetos e fornece recursos para definir as classes de objetos \cite{sommerville2003engenharia}.
+Segundo Peter Van Roy, um paradigma de programação define como a programação é realizada. Cada paradigma possui seu próprio conjunto de técnicas e formas de estruturar o pensamento na composição de software \cite{vanroy2012}. Cada paradigma tem suas próprias vantagens e desvantagens e o desenvolvedor deve escolher o mais adequado para cada projeto e problema a ser resolvido.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{imagens/paradigmas.png}
 	\caption{Paradigmas de Programação.}
+	\includegraphics[scale=0.5]{imagens/paradigmas.png}
 	\legend{Fonte: O Autor }
 	\label{fig:paradigmas}
 \end{figure}
 
+A programação orientada a objetos (POO) é um dos quatro principais paradigmas de programação, com o procedimental, funcional e lógico. A POO é uma abordagem para projetar e desenvolver software que se concentra na representação de entidades reais como objetos, com atributos e comportamentos. A programação orientada a objetos é realizada utilizando uma linguagem de programação orientada a objetos, como Java, que permite a implementação direta de objetos e fornece recursos para definir classes de objetos, como seus atributos e métodos. Esta abordagem permite a criação de programas de software mais organizados, reutilizáveis e fáceis de manter. A POO é amplamente utilizado em aplicações comerciais, games, sistemas web e muitos outros categorias de software, devido à sua capacidade de representar conceitos complexos de uma forma simples e fácil de entender. Além disso, a POO permite a reutilização de código, tornando o desenvolvimento de software mais rápido e eficiente \cite{sommerville2003engenharia}.
+
 \section{Principais conceitos de POO}
+
+A Programação Orientada a Objetos (POO), como já visto, é um paradigma de programação que se concentra em modelar conceitos reais como objetos computacionais, dotados de características e comportamentos. Esta abordagem permite a representação de dados e ações de forma mais intuitiva e natural, proporcionando uma melhor organização e reutilização de código em projetos de software. Abaixo será apresentado alguns dos principais conceitos envolvidos no paradigma.
 
 \subsection{Classes e objeto}
 
@@ -59,7 +59,7 @@ definição de um objeto e de uma classe de objeto a seguir:
   objeto dessa classe.
 \end{itemize}
 
-Em outras palavras, podemos dizer que classe é uma descrição generalizada que
+Em outras palavras, pode-se dizer que classe é uma descrição generalizada que
 descreve uma coleção de objetos similares, o qual, segundo 
 \citeonline{pressman2016engenharia}, é um conceito orientado a objeto que 
 encapsula dados e abstrações procedurais necessárias para descrever o conteúdo 
@@ -72,8 +72,9 @@ nosso ``objeto'':
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.4]{imagens/cachorro-objeto.png}
   \caption{Representação de um objeto}
+  \includegraphics[scale=0.4]{imagens/cachorro-objeto.png}
+  \caption{\textbf{Fonte:} O autor}
   \label{fig:cachorro-objeto}
 \end{figure}
 
@@ -94,7 +95,7 @@ Tais características que descrevem um objeto são chamadas na orientação a  o
 \subsection{Atributos}
 
 Os objetos reais têm propriedades que, no que lhe concerne, possuem valores. 
-Estes valores determinam o estado do objeto. Assim, na orientação a objeto, 
+Estes valores determinam o \textbf{estado do objet}o. Assim, na orientação a objeto, 
 essas propriedades são chamadas atributos. Logo, podemos dizer que esses atributos são como variáveis ou campos que guardam os variados valores que os objetos podem receber como características.
 
 \textbf{O estado de um objeto é um grupo de valores que estão em seus atributos em um certo momento}. \\
@@ -102,13 +103,15 @@ essas propriedades são chamadas atributos. Logo, podemos dizer que esses atribu
 \begin{minipage}{\textwidth}
   \begin{minipage}[b]{0.49\textwidth}
     \centering
+    \captionof{figure}{Representação de um objeto}    
     \includegraphics[scale=0.4]{imagens/cachorro-objeto.png}
-    \captionof{figure}{Representação de um objeto}
+    \caption*{\textbf{Fonte:} O autor}    
     \label{fig:cachorro-objeto-1}
   \end{minipage}
   \hfill
   \begin{minipage}[b]{0.52\textwidth}
     \centering
+    \captionof{table}{Atributos e valores}
     \begin{tabular}{|l|l|}
       \hline
       \multicolumn{2}{|c|}{Cachorro}      \\ \hline
@@ -119,7 +122,7 @@ essas propriedades são chamadas atributos. Logo, podemos dizer que esses atribu
         Cor dos olhos:        & Castanhos \\ \hline
         Peso                  & 5kg       \\ \hline
       \end{tabular}
-      \captionof{table}{Atributos e valores}
+      \caption*{\textbf{Fonte:} O autor}  
     \end{minipage}
   \end{minipage} \\
 
@@ -128,13 +131,15 @@ essas propriedades são chamadas atributos. Logo, podemos dizer que esses atribu
   \begin{minipage}{\textwidth}
     \begin{minipage}[b]{0.49\textwidth}
       \centering
-      \includegraphics[scale=0.6]{imagens/cachorro-objeto-2.png}
       \captionof{figure}{Representação de um objeto}
+      \includegraphics[scale=0.6]{imagens/cachorro-objeto-2.png}
+      \caption*{\textbf{Fonte:} O autor}
       \label{fig:cachorro-objeto-2}
     \end{minipage}
     \hfill
     \begin{minipage}[b]{0.49\textwidth}
       \centering
+      \captionof{table}{Atributos e valores}
       \begin{tabular}{|l|l|}
         \hline
         \multicolumn{2}{|c|}{Cachorro}      \\ \hline
@@ -145,7 +150,7 @@ essas propriedades são chamadas atributos. Logo, podemos dizer que esses atribu
           Cor dos olhos:        & Castanhos \\ \hline
           Peso                  & 5kg       \\ \hline
         \end{tabular}
-        \captionof{table}{Atributos e valores}
+        \caption*{\textbf{Fonte:} O autor}
       \end{minipage}
     \end{minipage} \\ 
 
@@ -153,19 +158,11 @@ Para que os atributos de um objeto mudem de valor isso deve ser feito  exclusiva
 
 \subsection{Métodos}
 
-São procedimentos ou funções que executam as ações específicas do objeto. 
-Dessa forma, os métodos são as ações que o objeto consegue realizar. É 
-através dos métodos que os objetos fazem tudo, inclusive se manifesta e 
-interage com outros objetos.
+Os métodos são uma parte fundamental dos objetos em programação. Eles são procedimentos ou funções que executam ações específicas e permitem que o objeto se manifeste e interaja com outros objetos. Esses métodos são acionados por mensagens enviadas por outros objetos, que solicitam a realização de uma ação específica. Os métodos também são responsáveis por acessar e modificar os atributos do objeto.
 
-Um objeto expõe algum comportamento (ou seja, executa uma operação) ao 
-receber um estímulo de outro objeto. É através de mensagens que um objeto 
-requisita uma ação a outro objeto. Sendo esta mensagem uma solicitação a um 
-objeto para serem executadas as rotinas a qual são nomeadas de Método da 
-classe. Então os métodos assumem a responsabilidade de acessar ou alterar os 
-atributos de um objeto.
+Como exemplo, no estudo de um objeto "cachorro", podemos identificar uma série de métodos que ele possui, como latir, babar, comer e sentar. Esses métodos são o comportamento que o objeto cachorro pode exibir quando estimulado por outro objeto. Em resumo, os métodos são as ações que o objeto consegue realizar, e é através deles que ele se manifesta e interage no mundo virtual.
 
-Anteriormente no estudo do objeto cachorro podemos enumerado uma série de métodos (ações), tais como: latir, babar, comer, sentar, etc.
+Já em sistemas computacionais, os métodos são funções ou procedimentos definidos em classes, ou objetos e executam tarefas específicas. Eles são utilizados para encapsular lógica de negócios, processamento de dados e outras operações que um objeto precisa realizar. Em resumo, eles são uma parte fundamental da programação orientada a objetos e são amplamente utilizados em sistemas computacionais para ajudar a organizar e modularizar o código, além de permitir a interação e reutilização de objetos.
 
 \subsection{Herança}\label{subsection:heranca}
 
@@ -182,15 +179,23 @@ O conceito de herança mimetiza as características hierárquicas de vários sis
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.3]{imagens/heranca.png}
   \caption{Diagrama representando a herança entre as classes}
+  \includegraphics[scale=0.3]{imagens/heranca.png}
+  \caption*{\textbf{Fonte:} ...}
   \label{fig:heranca}
 \end{figure}
 
 \section{Classes abstratas}
 
-Podemos dizer que as classes abstratas servem como modelo para outras classes que dela herdem (veremos herança nas próximas sessões), não podendo ser instanciada por si só. Para ter um objeto de uma classe abstrata é necessário criar uma classe mais especializada herdando dela e então instanciar essa nova classe. Os métodos da classe abstrata devem então serem sobrescritos nas classes filhas.
+As classes abstratas são moldes para outras classes que herdam seus atributos e métodos. Elas não podem ser instanciadas diretamente, mas precisam ser estendidas por uma classe mais específica, a qual pode ser instanciada. Os métodos da classe abstrata precisam ser redefinidos nas classes filhas (subclasses), permitindo a personalização do comportamento do objeto. 
 
+\begin{figure}[H]
+	\centering
+	\caption{Diagrama representando uma classe abstrata}
+	\includegraphics[scale=0.6]{imagens/classe-abstrata.png}
+	\caption*{\textbf{Fonte}: \url{https://pt.slideshare.net/CristianoSilva11/class-abstrata-java}}
+	\label{fig:abstrata}
+\end{figure}
 
 \subsection{Superclasses e subclasses}
 
@@ -206,17 +211,16 @@ Uma máxima que podemos guardar é:
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.5]{imagens/sub-e-sup-classes.png}
   \caption{Superclassses e Subclasses}
-  \legend{Fonte: \cite{articlelucas2009}}
+  \includegraphics[scale=0.5]{imagens/sub-e-sup-classes.png}
+  \legend{\textbf{Fonte}: \cite{articlelucas2009}}
   \label{fig:sub-e-sup-classes}
 \end{figure}
 
-\section{Exercícios de fixação}\label{exer:001}
+\section*{Exercícios de fixação}\label{exer:001}
 
 \begin{enumerate}
-    \item Para satisfazer as necessidades de informatização de uma biblioteca 
-universitária um sistema foi proposto para satisfazer algumas características:
+    \item Para satisfazer as necessidades de informatização de uma biblioteca universitária um sistema foi proposto para satisfazer algumas características:
 
 \begin{itemize}
   \item Cadastro dos usuários da biblioteca com endereço completo. 
@@ -228,7 +232,7 @@ universitária um sistema foi proposto para satisfazer algumas características:
   \item Editoras dos exemplares com ano de edição referente a cada exemplar.
 \end{itemize}
 
-Identifique os possíveis objetos com seus atributos e métodos respectivos.
+Identifique os possíveis objetos com seus respectivos atributos e métodos.
 
 \item \textbf{Desafio - Obrigatório:} Pesquise sobre os pontos negativos da orientação a objeto, principalmente sobre os conceitos que relacionam \textbf{Coesão} e \textbf{Acoplamento}.
 \end{enumerate}
@@ -320,7 +324,7 @@ Para ilustrar, a tabela abaixo contém um resumo e um exemplo de estes conceitos
   }
   \end{table}
 
-  \section{Exercícios de fixação}
+  \section*{Exercícios de fixação}
 
   Baseando-se nas explicações em aula e em suas anotações, responda as seguintes questões:
 
